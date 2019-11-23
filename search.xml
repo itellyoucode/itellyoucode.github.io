@@ -6,20 +6,20 @@
     <content><![CDATA[<h2 id="快捷生成archetype方便修改"><a href="#快捷生成archetype方便修改" class="headerlink" title="快捷生成archetype方便修改"></a>快捷生成archetype方便修改</h2><p>mvn archetype:create-from-project -Darchetype.filteredExtensions=java -DpackageName=com.pearlgo -DartifactId=ec-template</p><a id="more"></a>
 <h3 id="上传archetype到私服"><a href="#上传archetype到私服" class="headerlink" title="上传archetype到私服"></a>上传archetype到私服</h3><p>添加配置pom配置,是配置到archetype的pom</p>
 <!-- 配置部署的远程仓库 -->
- <distributionmanagement>
-  <snapshotrepository>
-   <id>nexus-snapshots</id>
-   <name>nexus distribution snapshot repository</name>
-   <url>xxxx私服snapshots地址</url>
-  </snapshotrepository>
-  <repository>
-   <id>nexus-releases</id>
-   <name>Nexus Release Repository</name>
-   <url>xxxx私服release地址</url>
-  </repository>
- </distributionmanagement>
-## 执行上传,用IDEA可以直接用快捷方法无需用命令
-mvn clean deploy]]></content>
+<p> <code>&lt;distributionManagement&gt;
+  &lt;snapshotRepository&gt;
+   &lt;id&gt;nexus-snapshots&lt;/id&gt;
+   &lt;name&gt;nexus distribution snapshot repository&lt;/name&gt;
+   &lt;url&gt;xxxx私服snapshots地址&lt;/url&gt;
+  &lt;/snapshotRepository&gt;
+  &lt;repository&gt;
+   &lt;id&gt;nexus-releases&lt;/id&gt;
+   &lt;name&gt;Nexus Release Repository&lt;/name&gt;
+   &lt;url&gt;xxxx私服release地址&lt;/url&gt;
+  &lt;/repository&gt;
+ &lt;/distributionManagement&gt;</code></p>
+<h2 id="执行上传-用IDEA可以直接用快捷方法无需用命令"><a href="#执行上传-用IDEA可以直接用快捷方法无需用命令" class="headerlink" title="执行上传,用IDEA可以直接用快捷方法无需用命令"></a>执行上传,用IDEA可以直接用快捷方法无需用命令</h2><p>mvn clean deploy</p>
+]]></content>
       <categories>
         <category>archetype</category>
         <category>maven</category>
@@ -120,7 +120,7 @@ mvn clean deploy]]></content>
       </tags>
   </entry>
   <entry>
-    <title>Hell World</title>
+    <title>Markdown基本语法</title>
     <url>/archives/8979b4c0.html</url>
     <content><![CDATA[<p>一、标题<br>在想要设置为标题的文字前面加#来表示<br>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</p><p>注：标准语法一般在#后跟个空格再写文字，貌似简书不加空格也行。</p><p>示例：</p><h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><a id="more"></a>
 
