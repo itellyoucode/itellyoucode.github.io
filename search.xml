@@ -1,24 +1,283 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hell World</title>
-    <url>/2018/01/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <title>快速生成Maven archetype模板</title>
+    <url>/archives/e0f55110.html</url>
+    <content><![CDATA[<h2 id="快捷生成archetype方便修改"><a href="#快捷生成archetype方便修改" class="headerlink" title="快捷生成archetype方便修改"></a>快捷生成archetype方便修改</h2><p>mvn archetype:create-from-project -Darchetype.filteredExtensions=java -DpackageName=com.pearlgo -DartifactId=ec-template</p><a id="more"></a>
+<h3 id="上传archetype到私服"><a href="#上传archetype到私服" class="headerlink" title="上传archetype到私服"></a>上传archetype到私服</h3><p>添加配置pom配置,是配置到archetype的pom</p>
+<!-- 配置部署的远程仓库 -->
+ <distributionmanagement>
+  <snapshotrepository>
+   <id>nexus-snapshots</id>
+   <name>nexus distribution snapshot repository</name>
+   <url>xxxx私服snapshots地址</url>
+  </snapshotrepository>
+  <repository>
+   <id>nexus-releases</id>
+   <name>Nexus Release Repository</name>
+   <url>xxxx私服release地址</url>
+  </repository>
+ </distributionmanagement>
+## 执行上传,用IDEA可以直接用快捷方法无需用命令
+mvn clean deploy]]></content>
+      <categories>
+        <category>archetype</category>
+        <category>maven</category>
+      </categories>
+      <tags>
+        <tag>archetype</tag>
+        <tag>maven</tag>
+        <tag>快捷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux操作</title>
+    <url>/archives/7a00f2af.html</url>
+    <content><![CDATA[<h3 id="找到根目录下所有的以test开头的文件并把查找结果当做参数传给rm-rf命令进行删除："><a href="#找到根目录下所有的以test开头的文件并把查找结果当做参数传给rm-rf命令进行删除：" class="headerlink" title="找到根目录下所有的以test开头的文件并把查找结果当做参数传给rm -rf命令进行删除："></a>找到根目录下所有的以test开头的文件并把查找结果当做参数传给rm -rf命令进行删除：</h3><p>1、find / -name “test<em>” |xargs rm -rf<br>2、find / -name “test</em>” -exec rm -rf {} ;<br>3、rm -rf $(find / -name “test”)</p><a id="more"></a>
+<h3 id="如果想指定递归深度，可以这样："><a href="#如果想指定递归深度，可以这样：" class="headerlink" title="如果想指定递归深度，可以这样："></a>如果想指定递归深度，可以这样：</h3><p>1、find / -maxdepth 3 -name “<em>.mp3” |xargs rm -rf<br>2、find / -maxdepth 3 -name “test</em>” -exec rm -rf {} ;<br>3、rm -rf $(find / -maxdepth 3 -name “test”)<br>这样只会查找三层目录中符合条件的文件并删除掉！ </p>
+<h3 id="使用特定用户重启"><a href="#使用特定用户重启" class="headerlink" title="使用特定用户重启"></a>使用特定用户重启</h3><p>sudo -u apprunner bash ./start.sh restart</p>
+<p>sudo -u apprunner /usr/local/java/jdk1.8.0_152/bin</p>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>ps aux –sort -rss|grep java</p>
+<h4 id="线程数等数据"><a href="#线程数等数据" class="headerlink" title="线程数等数据"></a>线程数等数据</h4><p>cat /proc/PID/status</p>
+<h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h3><p>tar -czvf 文件名 要打包内容</p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><p>tar -xzvf file.tar.gz</p>
+<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><p>zcat vsftpd.tar.gz|grep –binary-files=text ‘footbar.js’或<br>zgrep –binary-files=text ‘footbar.js’ vsftpd.tar.gz</p>
+<p>sudo rz -y 覆盖文件<br>sudo unzip -o<br>sudo cp -rf<br>chmod +x *.sh</p>
+<p>df -lh 磁盘大小</p>
+<p>du -h –max-depth=1 文件夹大小</p>
+<p>sudo scp -P 58880  ./dwc-pj.tar.gz <a href="mailto:dwc-lyp@112.74.140.11" target="_blank" rel="noopener">dwc-lyp@112.74.140.11</a>:/data/project/dwc</p>
+<p>jmap -histo:live 15441|less</p>
+<p>netstat -nap|grep 120.24.166.239:6379</p>
+<p>nohup java …. &gt; xx.txt &amp;</p>
+<p>jps</p>
+<p>功能</p>
+<p>显示当前所有java进程pid的命令。</p>
+<p>常用指令</p>
+<p>jps：显示当前用户的所有java进程的PID<br>jps -v 3331：显示虚拟机参数<br>jps -m 3331：显示传递给main()函数的参数<br>jps -l 3331：显示主类的全路径<br>详细介绍</p>
+<p>jinfo</p>
+<p>功能</p>
+<p>实时查看和调整虚拟机参数，可以显示未被显示指定的参数的默认值（jps -v 则不能）。</p>
+<p>jdk8中已经不支持该命令。</p>
+<p>常用指令</p>
+<p>jinfo -flag CMSIniniatingOccupancyFration 1444：查询CMSIniniatingOccupancyFration参数值</p>
+<p>详细介绍</p>
+<p>jstat</p>
+<p>功能</p>
+<p>显示进程中的类装载、内存、垃圾收集、JIT编译等运行数据。</p>
+<p>常用指令</p>
+<p>jstat -gc 3331 250 20 ：查询进程2764的垃圾收集情况，每250毫秒查询一次，一共查询20次。<br>jstat -gccause：额外输出上次GC原因<br>jstat -calss：件事类装载、类卸载、总空间以及所消耗的时间<br>详细介绍</p>
+<p>jmap</p>
+<p>功能</p>
+<p>生成堆转储快照（heapdump）</p>
+<p>常用指令</p>
+<p>jmap -heap 3331：查看java 堆（heap）使用情况<br>jmap -histo 3331：查看堆内存(histogram)中的对象数量及大小<br>jmap -histo:live 3331：JVM会先触发gc，然后再统计信息<br>jmap -dump:format=b,file=heapDump 3331：将内存使用的详细情况输出到文件，之后一般使用其他工具进行分析。<br>详细介绍</p>
+<p>jhat</p>
+<p>功能</p>
+<p>一般与jmap搭配使用，用来分析jmap生成的堆转储文件。</p>
+<p>由于有很多可视化工具（Eclipse Memory Analyzer 、IBM HeapAnalyzer）可以替代，所以很少用。不过在没有可视化工具的机器上也是可用的。</p>
+<p>常用指令</p>
+<p>jmap -dump:format=b,file=heapDump 3331 + jhat heapDump：解析Java堆转储文件,并启动一个 web server</p>
+<p>详细介绍</p>
+<p>jstack</p>
+<p>功能</p>
+<p>生成当前时刻的线程快照。</p>
+<p>常用指令</p>
+<p>jstack 3331：查看线程情况<br>jstack -F 3331：正常输出不被响应时，使用该指令<br>jstack -l 3331：除堆栈外，显示关于锁的附件信息<br>详细介绍</p>
+<p>常见问题定位过程</p>
+<p>频繁GC问题或内存溢出问题</p>
+<p>一、使用jps查看线程ID</p>
+<p>二、使用jstat -gc 3331 250 20 查看gc情况，一般比较关注PERM区的情况，查看GC的增长情况。</p>
+<p>三、使用jstat -gccause：额外输出上次GC原因</p>
+<p>四、使用jmap -dump:format=b,file=heapDump 3331生成堆转储文件</p>
+<p>五、使用jhat或者可视化工具（Eclipse Memory Analyzer 、IBM HeapAnalyzer）分析堆情况。</p>
+<p>六、结合代码解决内存溢出或泄露问题。</p>
+<p>死锁问题</p>
+<p>一、使用jps查看线程ID</p>
+<p>二、使用jstack 3331：查看线程情况</p>
 ]]></content>
       <categories>
-        <category>World</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDEA常用快捷键</title>
+    <url>/archives/566321e7.html</url>
+    <content><![CDATA[<h2 id="记录原因"><a href="#记录原因" class="headerlink" title="记录原因"></a>记录原因</h2><p>因为经常忘记快捷键,所以写一遍记录常用快捷键的博客,方便忘记的时候可以快速查找,不用到处翻。</p>
+<a id="more"></a>
+<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><p>Ctrl+Shift + Enter，语句完成<br>“！”，否定完成，输入表达式时按 “！”键<br>Ctrl+E，最近的文件<br>Ctrl+Shift+E，最近更改的文件<br>Shift+Click，可以关闭文件<br>Ctrl+[ OR ]，可以跑到大括号的开头与结尾<br>Ctrl+F12，可以显示当前文件的结构<br>Ctrl+F7，可以查询当前元素在当前文件中的引用，然后按 F3 可以选择<br>Ctrl+N，可以快速打开类<br>Ctrl+Shift+N，可以快速打开文件<br>Alt+Q，可以看到当前方法的声明<br>Ctrl+P，可以显示参数信息<br>Ctrl+Shift+Insert，可以选择剪贴板内容并插入<br>Alt+Insert，可以生成构造器/Getter/Setter等<br>Ctrl+Alt+V，可以引入变量。例如：new String(); 自动导入变量定义<br>Ctrl+Alt+T，可以把代码包在一个块内，例如：try/catch<br>Ctrl+Enter，导入包，自动修正<br>Ctrl+Alt+L，格式化代码<br>Ctrl+Alt+I，将选中的代码进行自动缩进编排，这个功能在编辑 JSP 文件时也可以工作<br>Ctrl+Alt+O，优化导入的类和包<br>Ctrl+R，替换文本<br>Ctrl+F，查找文本<br>Ctrl+Shift+Space，自动补全代码<br>Ctrl+空格，代码提示（与系统输入法快捷键冲突）<br>Ctrl+Shift+Alt+N，查找类中的方法或变量<br>Alt+Shift+C，最近的更改<br>Alt+Shift+Up/Down，上/下移一行<br>Shift+F6，重构 – 重命名<br>Ctrl+X，删除行<br>Ctrl+D，复制行<br>Ctrl+/或Ctrl+Shift+/，注释（//或者/**/）<br>Ctrl+J，自动代码（例如：serr）<br>Ctrl+Alt+J，用动态模板环绕<br>Ctrl+H，显示类结构图（类的继承层次）<br>Ctrl+Q，显示注释文档<br>Alt+F1，查找代码所在位置<br>Alt+1，快速打开或隐藏工程面板<br>Ctrl+Alt+left/right，返回至上次浏览的位置<br>Alt+left/right，切换代码视图<br>Alt+Up/Down，在方法间快速移动定位<br>Ctrl+Shift+Up/Down，向上/下移动语句<br>F2 或 Shift+F2，高亮错误或警告快速定位<br>Tab，代码标签输入完成后，按 Tab，生成代码<br>Ctrl+Shift+F7，高亮显示所有该文本，按 Esc 高亮消失<br>Alt+F3，逐个往下查找相同文本，并高亮显示<br>Ctrl+Up/Down，光标中转到第一行或最后一行下<br>Ctrl+B/Ctrl+Click，快速打开光标处的类或方法（跳转到定义处）<br>Ctrl+Alt+B，跳转到方法实现处<br>Ctrl+Shift+Backspace，跳转到上次编辑的地方<br>Ctrl+O，重写方法<br>Ctrl+Alt+Space，类名自动完成<br>Ctrl+Alt+Up/Down，快速跳转搜索结果<br>Ctrl+Shift+J，整合两行<br>Alt+F8，计算变量值<br>Ctrl+Shift+V，可以将最近使用的剪贴板内容选择插入到文本<br>Ctrl+Alt+Shift+V，简单粘贴<br>Shift+Esc，不仅可以把焦点移到编辑器上，而且还可以隐藏当前（或最后活动的）工具窗口<br>F12，把焦点从编辑器移到最近使用的工具窗口<br>Shift+F1，要打开编辑器光标字符处使用的类或者方法 Java 文档的浏览器<br>Ctrl+W，可以选择单词继而语句继而行继而函数<br>Ctrl+Shift+W，取消选择光标所在词<br>Alt+F7，查找整个工程中使用地某一个类、方法或者变量的位置<br>Ctrl+I，实现方法<br>Ctrl+Shift+U，大小写转化<br>Ctrl+Y，删除当前行<br>Shift+Enter，向下插入新行<br>psvm/sout，main/System.out.println(); Ctrl+J，查看更多<br>Ctrl+Shift+F，全局查找<br>Ctrl+F，查找/Shift+F3，向上查找/F3，向下查找<br>Ctrl+Shift+S，高级搜索<br>Ctrl+U，转到父类<br>Ctrl+Alt+S，打开设置对话框<br>Alt+Shift+Inert，开启/关闭列选择模式<br>Ctrl+Alt+Shift+S，打开当前项目/模块属性<br>Ctrl+G，定位行<br>Alt+Home，跳转到导航栏<br>Ctrl+Enter，上插一行<br>Ctrl+Backspace，按单词删除<br>Ctrl+”+/-”，当前方法展开、折叠<br>Ctrl+Shift+”+/-”，全部展开、折叠</p>
+<h2 id="【调试部分、编译】"><a href="#【调试部分、编译】" class="headerlink" title="【调试部分、编译】"></a>【调试部分、编译】</h2><p>Ctrl+F2，停止<br>Alt+Shift+F9，选择 Debug<br>Alt+Shift+F10，选择 Run<br>Ctrl+Shift+F9，编译<br>Ctrl+Shift+F10，运行<br>Ctrl+Shift+F8，查看断点<br>F8，步过<br>F7，步入<br>Shift+F7，智能步入<br>Shift+F8，步出<br>Alt+Shift+F8，强制步过<br>Alt+Shift+F7，强制步入<br>Alt+F9，运行至光标处<br>Ctrl+Alt+F9，强制运行至光标处<br>F9，恢复程序<br>Alt+F10，定位到断点<br>Ctrl+F8，切换行断点<br>Ctrl+F9，生成项目<br>Alt+1，项目<br>Alt+2，收藏<br>Alt+6，TODO<br>Alt+7，结构<br>Ctrl+Shift+C，复制路径<br>Ctrl+Alt+Shift+C，复制引用，必须选择类名<br>Ctrl+Alt+Y，同步<br>Ctrl+~，快速切换方案（界面外观、代码风格、快捷键映射等菜单）<br>Shift+F12，还原默认布局<br>Ctrl+Shift+F12，隐藏/恢复所有窗口<br>Ctrl+F4，关闭<br>Ctrl+Shift+F4，关闭活动选项卡<br>Ctrl+Tab，转到下一个拆分器<br>Ctrl+Shift+Tab，转到上一个拆分器</p>
+<h2 id="【重构】"><a href="#【重构】" class="headerlink" title="【重构】"></a>【重构】</h2><p>Ctrl+Alt+Shift+T，弹出重构菜单<br>Shift+F6，重命名<br>F6，移动<br>F5，复制<br>Alt+Delete，安全删除<br>Ctrl+Alt+N，内联</p>
+<h2 id="【查找】"><a href="#【查找】" class="headerlink" title="【查找】"></a>【查找】</h2><p>Ctrl+F，查找<br>Ctrl+R，替换<br>F3，查找下一个<br>Shift+F3，查找上一个<br>Ctrl+Shift+F，在路径中查找<br>Ctrl+Shift+R，在路径中替换<br>Ctrl+Shift+S，搜索结构<br>Ctrl+Shift+M，替换结构<br>Alt+F7，查找用法<br>Ctrl+Alt+F7，显示用法<br>Ctrl+F7，在文件中查找用法<br>Ctrl+Shift+F7，在文件中高亮显示用法</p>
+]]></content>
+      <categories>
+        <category>IDEA</category>
+      </categories>
+      <tags>
+        <tag>IDEA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hell World</title>
+    <url>/archives/8979b4c0.html</url>
+    <content><![CDATA[<p>一、标题<br>在想要设置为标题的文字前面加#来表示<br>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</p><p>注：标准语法一般在#后跟个空格再写文字，貌似简书不加空格也行。</p><p>示例：</p><h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><a id="more"></a>
+
+
+<h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><p>效果如下：</p>
+<p>这是一级标题<br>这是二级标题<br>这是三级标题<br>这是四级标题<br>这是五级标题<br>这是六级标题<br>二、字体<br>加粗<br>要加粗的文字左右分别用两个*号包起来</p>
+<p>斜体<br>要倾斜的文字左右分别用一个*号包起来</p>
+<p>斜体加粗<br>要倾斜和加粗的文字左右分别用三个*号包起来</p>
+<p>删除线<br>要加删除线的文字左右分别用两个~~号包起来</p>
+<p>示例：</p>
+<p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em>`<br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del><br>效果如下：</p>
+<p>这是加粗的文字<br>这是倾斜的文字<br>这是斜体加粗的文字<br>这是加删除线的文字</p>
+<p>三、引用<br>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br>n个…<br>貌似可以一直加下去，但没神马卵用</p>
+<p>示例：</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>这是引用的内容<br>效果如下：</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>这是引用的内容</p>
+<p>这是引用的内容</p>
+<p>这是引用的内容</p>
+<p>四、分割线<br>三个或者三个以上的 - 或者 * 都可以。</p>
+<p>示例：</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>效果如下：<br>可以看到，显示效果是一样的。</p>
+<p>五、图片<br>语法：</p>
+<p><code>![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</code></p>
+<p>图片alt就是显示在图片下面的文字，相当于对图片内容的解释。<br>图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加<br>示例：</p>
+<p>![blockchain](<a href="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/" target="_blank" rel="noopener">https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/</a><br>u=702257389,1274025419&amp;fm=27&amp;gp=0.jpg “区块链”)<br>效果如下：</p>
+<p>blockchain<br>上传本地图片直接点击导航栏的图片标志，选择图片即可</p>
+<p>六、超链接<br>语法：</p>
+<p><a href="超链接地址" title="超链接title">超链接名</a><br>title可加可不加<br>示例：</p>
+<p><a href="http://jianshu.com" target="_blank" rel="noopener">简书</a><br><a href="http://baidu.com" target="_blank" rel="noopener">百度</a><br>效果如下：</p>
+<p>简书<br>百度</p>
+<p>注：Markdown本身语法不支持链接在新页面中打开，貌似简书做了处理，是可以的。别的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</p>
+<p><a href="超链接地址" target="_blank">超链接名</a></p>
+<p>示例<br><a href="https://www.jianshu.com/u/1f5ac0cf6a8b" target="_blank">简书</a><br>七、列表<br>无序列表<br>语法：<br>无序列表用 - + * 任何一种都可以</p>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<p>注意：- + * 跟内容之间都要有一个空格</p>
+<p>效果如下：</p>
+<p>列表内容<br>列表内容<br>列表内容<br>有序列表<br>语法：<br>数字加点</p>
+<p>1.列表内容<br>2.列表内容<br>3.列表内容</p>
+<p>注意：序号跟内容之间要有空格<br>效果如下：</p>
+<p>1.列表内容<br>2.列表内容<br>3.列表内容</p>
+<p>列表嵌套<br>上一级和下一级之间敲三个空格即可</p>
+<p>一级无序列表内容</p>
+<p>二级无序列表内容<br>二级无序列表内容<br>二级无序列表内容<br>一级无序列表内容</p>
+<p>二级有序列表内容<br>二级有序列表内容<br>二级有序列表内容<br>一级有序列表内容</p>
+<p>二级无序列表内容<br>二级无序列表内容<br>二级无序列表内容<br>一级有序列表内容</p>
+<p>二级有序列表内容<br>二级有序列表内容<br>二级有序列表内容<br>八、表格<br>语法：</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th align="center">表头</th>
+<th align="right">表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内容</td>
+<td align="center">内容</td>
+<td align="right">内容</td>
+</tr>
+<tr>
+<td>内容</td>
+<td align="center">内容</td>
+<td align="right">内容</td>
+</tr>
+</tbody></table>
+<p>第二行分割表头和内容。</p>
+<ul>
+<li>有一个就行，为了对齐，多加了几个<br>文字默认居左</li>
+<li>两边加：表示文字居中</li>
+<li>右边加：表示文字居右<br>注：原生的语法两边都要用 | 包起来。此处省略<br>示例：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th align="center">技能</th>
+<th align="right">排行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>刘备</td>
+<td align="center">哭</td>
+<td align="right">大哥</td>
+</tr>
+<tr>
+<td>关羽</td>
+<td align="center">打</td>
+<td align="right">二哥</td>
+</tr>
+<tr>
+<td>张飞</td>
+<td align="center">骂</td>
+<td align="right">三弟</td>
+</tr>
+<tr>
+<td>效果如下：</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p>姓名    技能    排行<br>刘备    哭    大哥<br>关羽    打    二哥<br>张飞    骂    三弟<br>九、代码<br>语法：<br>单行代码：代码之间分别用一个反引号包起来</p>
+<pre><code>`代码内容`</code></pre><p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p>
+<p>(<code>)
+  代码...
+  代码...
+  代码...
+(</code>)<br>注：为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。</p>
+<p>示例：</p>
+<p>单行代码</p>
+<p><code>create database hero;</code><br>代码块</p>
+<p>(<code>)
+    function fun(){
+         echo &quot;这是一句非常牛逼的代码&quot;;
+    }
+    fun();
+(</code>)<br>效果如下：</p>
+<p>单行代码</p>
+<p>create database hero;</p>
+<p>代码块</p>
+<p>function fun(){<br>  echo “这是一句非常牛逼的代码”;<br>}<br>fun();<br>十、流程图</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">st=&gt;start: 开始</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">&amp;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Markdown</category>
       </categories>
   </entry>
 </search>
