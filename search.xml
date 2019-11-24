@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java程序员Chrome浏览器必装插件</title>
+    <url>/archives/b0de6b16.html</url>
+    <content><![CDATA[<p>整理了一下自己一直在用的Chrome浏览器插件,之后有觉得好用的也会更新进来</p><h2 id="SQLDelimiter"><a href="#SQLDelimiter" class="headerlink" title="SQLDelimiter"></a>SQLDelimiter</h2><p>参数拆分插件,从Excel直接复制或者MySQL查询结果复制,直接转化成带逗号分隔<br><img src="/images/loading.png" data-original="/images/pasted-3.png" alt="upload successful"></p><h2 id="JSON-handle"><a href="#JSON-handle" class="headerlink" title="JSON-handle"></a>JSON-handle</h2><a id="more"></a>
+
+<p>Json格式化或者转成更好看的形式,方便检查数据<br><img src="/images/loading.png" data-original="/images/pasted-4.png" alt="upload successful"></p>
+<h2 id="JSON-Formatter"><a href="#JSON-Formatter" class="headerlink" title="JSON Formatter"></a>JSON Formatter</h2><p>直接格式化http请求返回的json内容</p>
+]]></content>
+  </entry>
+  <entry>
     <title>程序员必须知道的linux命令</title>
     <url>/archives/b77c3e4.html</url>
     <content><![CDATA[<h3 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find / -name filename.txt 根据名称查找/目录下的filename.txt文件。</span><br><span class="line">find . -name &quot;*.xml&quot; 递归查找所有的xml文件</span><br><span class="line">find .  -name &quot;*.xml&quot; |xargs grep  &quot;hello world&quot; 递归查找所有文件内容中包含hello world的xml文件</span><br><span class="line">grep -H  &apos;spring&apos; *.xml 查找所以有的包含spring的xml文件</span><br><span class="line">find ./ -size 0 | xargs rm -f &amp; 删除文件大小为零的文件</span><br><span class="line">ls -l | grep &apos;jar&apos; 查找当前目录中的所有jar文件</span><br><span class="line">grep &apos;test&apos; d* 显示所有以d开头的文件中包含test的行。</span><br><span class="line">grep &apos;test&apos; aa bb cc 显示在aa，bb，cc文件中匹配test的行。</span><br><span class="line">grep &apos;[a-z]\&#123;5\&#125;&apos; aa 显示所有包含每个字符串至少有5个连续小写字符的字符串的行。</span><br></pre></td></tr></table></figure><a id="more"></a>
