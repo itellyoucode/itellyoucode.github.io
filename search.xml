@@ -3,10 +3,10 @@
   <entry>
     <title>Java程序员Chrome浏览器必装插件</title>
     <url>/archives/b0de6b16.html</url>
-    <content><![CDATA[<p>整理了一下自己一直在用的Chrome浏览器插件,之后有觉得好用的也会更新进来</p><h2 id="SQLDelimiter"><a href="#SQLDelimiter" class="headerlink" title="SQLDelimiter"></a>SQLDelimiter</h2><p>参数拆分插件,从Excel直接复制或者MySQL查询结果复制,直接转化成带逗号分隔<br><img src="/images/loading.png" data-original="/images/pasted-3.png" alt="upload successful"></p><h2 id="JSON-handle"><a href="#JSON-handle" class="headerlink" title="JSON-handle"></a>JSON-handle</h2><a id="more"></a>
+    <content><![CDATA[<p>整理了一下自己一直在用的Chrome浏览器插件,之后有觉得好用的也会更新进来</p><h2 id="SQLDelimiter"><a href="#SQLDelimiter" class="headerlink" title="SQLDelimiter"></a><a href="https://chrome.google.com/webstore/detail/sqldelimiter/ngobnmgdnggmcafeblbealjjnpakoghd" target="_blank" rel="noopener">SQLDelimiter</a></h2><p>参数拆分插件,从Excel直接复制或者MySQL查询结果复制,直接转化成带逗号分隔<br><img src="/images/loading.png" data-original="/images/pasted-3.png" alt="upload successful"></p><h2 id="JSON-handle"><a href="#JSON-handle" class="headerlink" title="JSON-handle"></a><a href="https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj" target="_blank" rel="noopener">JSON-handle</a></h2><a id="more"></a>
 
 <p>Json格式化或者转成更好看的形式,方便检查数据<br><img src="/images/loading.png" data-original="/images/pasted-4.png" alt="upload successful"></p>
-<h2 id="JSON-Formatter"><a href="#JSON-Formatter" class="headerlink" title="JSON Formatter"></a>JSON Formatter</h2><p>直接格式化http请求返回的json内容</p>
+<h2 id="JSON-Formatter"><a href="#JSON-Formatter" class="headerlink" title="JSON Formatter"></a><a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa" target="_blank" rel="noopener">JSON Formatter</a></h2><p>直接格式化http请求返回的json内容</p>
 ]]></content>
       <categories>
         <category>Java</category>
