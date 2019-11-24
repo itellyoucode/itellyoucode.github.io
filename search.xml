@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>程序员必须知道的linux命令</title>
+    <url>/archives/b77c3e4.html</url>
+    <content><![CDATA[<h3 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find / -name filename.txt 根据名称查找/目录下的filename.txt文件。</span><br><span class="line">find . -name &quot;*.xml&quot; 递归查找所有的xml文件</span><br><span class="line">find .  -name &quot;*.xml&quot; |xargs grep  &quot;hello world&quot; 递归查找所有文件内容中包含hello world的xml文件</span><br><span class="line">grep -H  &apos;spring&apos; *.xml 查找所以有的包含spring的xml文件</span><br><span class="line">find ./ -size 0 | xargs rm -f &amp; 删除文件大小为零的文件</span><br><span class="line">ls -l | grep &apos;jar&apos; 查找当前目录中的所有jar文件</span><br><span class="line">grep &apos;test&apos; d* 显示所有以d开头的文件中包含test的行。</span><br><span class="line">grep &apos;test&apos; aa bb cc 显示在aa，bb，cc文件中匹配test的行。</span><br><span class="line">grep &apos;[a-z]\&#123;5\&#125;&apos; aa 显示所有包含每个字符串至少有5个连续小写字符的字符串的行。</span><br></pre></td></tr></table></figure><a id="more"></a>
+<h3 id="查看一个程序是否运行"><a href="#查看一个程序是否运行" class="headerlink" title="查看一个程序是否运行"></a>查看一个程序是否运行</h3><p><code>ps –ef|grep tomcat 查看所有有关tomcat的进程</code></p>
+<h3 id="终止线程"><a href="#终止线程" class="headerlink" title="终止线程"></a>终止线程</h3><p><code>kill -9 19979 终止线程号位19979的线程</code></p>
+<h3 id="查看文件，包含隐藏文件"><a href="#查看文件，包含隐藏文件" class="headerlink" title="查看文件，包含隐藏文件"></a>查看文件，包含隐藏文件</h3><p><code>ls -al</code></p>
+<h3 id="当前工作目录"><a href="#当前工作目录" class="headerlink" title="当前工作目录"></a>当前工作目录</h3><p><code>pwd</code></p>
+<h3 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp  source dest 复制文件</span><br><span class="line">cp -r  sourceFolder targetFolder 递归复制整个文件夹</span><br><span class="line">scp sourecFile romoteUserName@remoteIp:remoteAddr 远程拷贝</span><br></pre></td></tr></table></figure>
+<h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><p><code>mkdir newfolder</code></p>
+<h3 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h3><p><code>rmdir deleteEmptyFolder 删除空目录 rm -rf deleteFile 递归删除目录中所有内容</code></p>
+<h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><p><code>mv /temp/movefile /targetFolder</code></p>
+<h3 id="重命令"><a href="#重命令" class="headerlink" title="重命令"></a>重命令</h3><p><code>mv oldNameFile newNameFile</code></p>
+<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><p><code>su -username</code></p>
+<h3 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h3><p><code>chmod 777 file.java //file.java的权限-rwxrwxrwx，r表示读、w表示写、x表示可执行</code></p>
+<h3 id="压缩文件"><a href="#压缩文件" class="headerlink" title="压缩文件"></a>压缩文件</h3><p><code>tar -czf test.tar.gz /test1 /test2</code></p>
+<h3 id="列出压缩文件列表"><a href="#列出压缩文件列表" class="headerlink" title="列出压缩文件列表"></a>列出压缩文件列表</h3><p><code>tar -tzf test.tar.gz</code></p>
+<h3 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h3><p><code>tar -xvzf test.tar.gz</code></p>
+<h3 id="查看文件头10行"><a href="#查看文件头10行" class="headerlink" title="查看文件头10行"></a>查看文件头10行</h3><p><code>head -n 10 example.txt</code></p>
+<h3 id="查看文件尾10行"><a href="#查看文件尾10行" class="headerlink" title="查看文件尾10行"></a>查看文件尾10行</h3><p><code>tail -n 10 example.txt</code></p>
+<h3 id="查看日志类型文件"><a href="#查看日志类型文件" class="headerlink" title="查看日志类型文件"></a>查看日志类型文件</h3><p><code>tail -f exmaple.log //这个命令会自动显示新增内容，屏幕只显示10行内容的（可设置）。</code></p>
+<h3 id="使用超级管理员身份执行命令"><a href="#使用超级管理员身份执行命令" class="headerlink" title="使用超级管理员身份执行命令"></a>使用超级管理员身份执行命令</h3><p><code>sudo rm a.txt 使用管理员身份删除文件</code></p>
+<h3 id="查看端口占用情况"><a href="#查看端口占用情况" class="headerlink" title="查看端口占用情况"></a>查看端口占用情况</h3><p><code>netstat -tln | grep 8080 查看端口8080的使用情况</code></p>
+<h3 id="查看端口属于哪个程序"><a href="#查看端口属于哪个程序" class="headerlink" title="查看端口属于哪个程序"></a>查看端口属于哪个程序</h3><p><code>lsof -i :8080</code></p>
+<h3 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ps aux|grep java 查看java进程</span><br><span class="line">ps aux 查看所有进程</span><br></pre></td></tr></table></figure>
+<h3 id="以树状图列出目录的内容"><a href="#以树状图列出目录的内容" class="headerlink" title="以树状图列出目录的内容"></a>以树状图列出目录的内容</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tree a</span><br><span class="line">ps:Mac下使用tree命令</span><br></pre></td></tr></table></figure>
+<h3 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget http://file.tgz mac下安装wget命令</span><br><span class="line">curl http://file.tgz</span><br></pre></td></tr></table></figure>
+<h3 id="网络检测"><a href="#网络检测" class="headerlink" title="网络检测"></a>网络检测</h3><p><code>ping www.taobao.com</code></p>
+<h3 id="远程登录"><a href="#远程登录" class="headerlink" title="远程登录"></a>远程登录</h3><p><code>ssh userName@ip</code></p>
+<h3 id="打印信息"><a href="#打印信息" class="headerlink" title="打印信息"></a>打印信息</h3><p>echo $JAVA_HOME 打印java home环境变量的值</p>
+<h3 id="java-常用命令"><a href="#java-常用命令" class="headerlink" title="java 常用命令"></a>java 常用命令</h3><p><code>java javac jps ,jstat ,jmap, jstack</code></p>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><p><code>svn git maven</code></p>
+<h3 id="linux命令学习网站"><a href="#linux命令学习网站" class="headerlink" title="linux命令学习网站:"></a>linux命令学习网站:</h3><p><a href="http://explainshell.com/" target="_blank" rel="noopener">http://explainshell.com/</a></p>
+<h3 id="修改机器名"><a href="#修改机器名" class="headerlink" title="修改机器名"></a>修改机器名</h3><pre><code>更改/etc/sysconfig下的network文件，在提示符下输入vi /etc/sysconfig/network，然后将HOSTNAME后面的值改为想要设置的主机名，在提示符下输入reboot命令，重新启动服务器。</code></pre><h3 id="解压nginx日志"><a href="#解压nginx日志" class="headerlink" title="解压nginx日志"></a>解压nginx日志</h3><pre><code>现在nginx日志用gzip压缩，文件以gz结尾。
+
+解压命令： gzip -d  压缩文件名 
+不解压，直接查看压缩文件内容，命令： gunzip -c  压缩文件名</code></pre><h3 id="测试磁盘的读写"><a href="#测试磁盘的读写" class="headerlink" title="测试磁盘的读写"></a>测试磁盘的读写</h3><pre><code> time有计时作用，dd用于复制，从if读出，写到of。if=/dev/zero不产生IO，因此可以用来测试纯写速度。同理of=/dev/null不产生IO，可以用来测试纯读速度。bs是每次读或写的大小，即一个块的大小，count是读写块的数量。
+
+纯写速度： time dd if=/dev/zero of=/var/test bs=8k count=10000
+
+ 纯读速度：time dd if=/var/test of=/dev/null bs=8k</code></pre><h3 id="linux端口连接范围-gt-gt-gt-gt-gt-用于向外连接的端口范围"><a href="#linux端口连接范围-gt-gt-gt-gt-gt-用于向外连接的端口范围" class="headerlink" title="linux端口连接范围&gt;&gt;&gt;&gt;&gt;用于向外连接的端口范围"></a>linux端口连接范围&gt;&gt;&gt;&gt;&gt;用于向外连接的端口范围</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /proc/sys/net/ipv4/ip_local_port_range</span><br><span class="line">net.ipv4.ip_local_port_range=1024 65000</span><br></pre></td></tr></table></figure>
+<h3 id="修改打开文件最大数，vi-etc-security-limits-conf-加入以下两行"><a href="#修改打开文件最大数，vi-etc-security-limits-conf-加入以下两行" class="headerlink" title="修改打开文件最大数，vi /etc/security/limits.conf,加入以下两行"></a>修改打开文件最大数，vi /etc/security/limits.conf,加入以下两行</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* soft nofile 402400</span><br><span class="line">* hard nofile 480000</span><br></pre></td></tr></table></figure>
+<p>然后重新登录即可使用命令ulimit -a 查看到修改。在这之前启动的进程仍旧使用以前的配置，之后启动的进程使用最新配置<br>用ulimit -n 2048 修改只对当前的shell有效，退出后失效</p>
+<h3 id="tcp连接复用和快速回收"><a href="#tcp连接复用和快速回收" class="headerlink" title="tcp连接复用和快速回收"></a>tcp连接复用和快速回收</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">net.ipv4.tcp_tw_recycle = 1</span><br></pre></td></tr></table></figure>
+<p><code>net.ipv4.tcp_keepalive_time = 1200</code>表示当keepalive起用的时候，TCP发送keepalive消息的频度。缺省是2小时，改为20分钟。</p>
+<p><code>net.ipv4.ip_local_port_range = 1024</code> 65535表示用于向外连接的端口范围。缺省情况下过窄：32768到61000，改为1024到65535。</p>
+<p><code>net.ipv4.tcp_max_syn_backlog = 16384</code><br>表示SYN队列的长度，默认为1024，加大队列长度为8192，可以容纳更多等待连接的网络连接数。 </p>
+<p><code>net.ipv4.tcp_max_tw_buckets = 180000</code> </p>
+<p>表示系统同时保持TIME_WAIT套接字的最大数 量，如果超过这个数字，TIME_WAIT套接字将立刻被清除并打印警告信息。默认为180000,可适当增大该值，但不建议减小。对于Apache、 Nginx等服务器，以上几行参数的设置可以很好地减少TIME_WAIT套接字数量，但是对于Squid，效果却不大。此项参数可以控制 TIME_WAIT套接字的最大数量，避免Squid服务器被大量的TIME_WAIT套接字拖死。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">net.ipv4.tcp_keepalive_time = 180</span><br><span class="line">net.ipv4.tcp_keepalive_intvl = 15</span><br><span class="line">net.ipv4.tcp_keepalive_probes = 2</span><br><span class="line">net.ipv4.tcp_fin_timeout = 5</span><br><span class="line"></span><br><span class="line">nf_conntrack: table full, dropping packet.</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="查看NS提供商"><a href="#查看NS提供商" class="headerlink" title="查看NS提供商"></a>查看NS提供商</h3><p><code>dig baidu.com NS trace @8.8.8.8</code></p>
+<h3 id="指定NS解析域名"><a href="#指定NS解析域名" class="headerlink" title="指定NS解析域名"></a>指定NS解析域名</h3><p> <code>nslookup www.baidu.com</code></p>
+<h3 id="sz-rz安装"><a href="#sz-rz安装" class="headerlink" title="sz/rz安装"></a>sz/rz安装</h3><p>（1）编译安装</p>
+<p>root 账号登陆后，依次执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /tmp</span><br><span class="line"></span><br><span class="line">wget http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</span><br><span class="line"></span><br><span class="line">tar zxvf lrzsz-0.12.20.tar.gz &amp;&amp; cd lrzsz-0.12.20</span><br><span class="line"></span><br><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>上面安装过程默认把lsz和lrz安装到了/usr/local/bin/目录下，现在我们并不能直接使用，下面创建软链接，并命名为rz/sz：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /usr/bin</span><br><span class="line">ln -s /usr/local/bin/lrz rz</span><br><span class="line">ln -s /usr/local/bin/lsz sz</span><br></pre></td></tr></table></figure>
+
+
+<p>（2）yum安装</p>
+<p>root 账号登陆后执行以下命令：</p>
+<p><code>yum install -y lrzsz</code></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Meno</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mysql数据库配置优化</title>
     <url>/archives/692ce8b8.html</url>
     <content><![CDATA[<h1 id="tmp-table-size-临时表-用于排序"><a href="#tmp-table-size-临时表-用于排序" class="headerlink" title="tmp_table_size 临时表 (用于排序)"></a>tmp_table_size 临时表 (用于排序)</h1><p>show global status like ‘created_tmp%’; </p><p>| Variable_name | Value | </p><p>| Created_tmp_disk_tables | 21197 | #在磁盘上创建临时表的次数 </p><a id="more"></a>
