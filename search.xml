@@ -8,6 +8,14 @@
 <p>Json格式化或者转成更好看的形式,方便检查数据<br><img src="/images/loading.png" data-original="/images/pasted-4.png" alt="upload successful"></p>
 <h2 id="JSON-Formatter"><a href="#JSON-Formatter" class="headerlink" title="JSON Formatter"></a>JSON Formatter</h2><p>直接格式化http请求返回的json内容</p>
 ]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Chrome</tag>
+        <tag>插件</tag>
+        <tag>开发</tag>
+      </tags>
   </entry>
   <entry>
     <title>程序员必须知道的linux命令</title>
@@ -293,7 +301,6 @@
 <p>比较合适的设置：Open_files / open_files_limit * 100% &lt;= 75%</p>
 ]]></content>
       <categories>
-        <category>java</category>
         <category>db</category>
       </categories>
       <tags>
