@@ -393,6 +393,22 @@
       </tags>
   </entry>
   <entry>
+    <title>dubbo学习记录</title>
+    <url>/archives/33b13b3d.html</url>
+    <content><![CDATA[<h2 id="什么是RPC"><a href="#什么是RPC" class="headerlink" title="什么是RPC"></a>什么是RPC</h2><p>分布式计算，远程过程调用（英语：Remote Procedure Call，缩写为 RPC）是一个计算机通信协议。该协议允许运行于一台计算机的程序调用另一个地址空间（通常为一个开放网络的一台计算机）的子程序，而程序员就像调用本地程序一样，无需额外地为这个交互作用编程（无需关注细节）。RPC是一种服务器-客户端（Client/Server）模式，经典实现是一个通过发送请求-接受回应进行信息交互的系统。</p><a id="more"></a>
+<p>如果涉及的软件采用面向对象编程，那么远程过程调用亦可称作远程调用或远程方法调用，例：Java RMI。</p>
+<p>RPC是一种进程间通信的模式，程序分布在不同的地址空间里。如果在同一主机里，RPC可以通过不同的虚拟地址空间（即便使用相同的物理地址）进行通讯，而在不同的主机间，则通过不同的物理进行交互。许多技术（常常是不兼容）都是基于这种概念而实现的。</p>
+<h2 id="RPC实现原理"><a href="#RPC实现原理" class="headerlink" title="RPC实现原理"></a>RPC实现原理</h2><p>首先需要有处理网络连接通讯的模块，负责连接建立、管理和消息的传输。其次需要有编<br>解码的模块，因为网络通讯都是传输的字节码，需要将我们使用的对象序列化和反序列<br>化。剩下的就是客户端和服务器端的部分，服务器端暴露要开放的服务接口，客户调用服<br>务接口的一个代理实现，这个代理实现负责收集数据、编码并传输给服务器然后等待结果<br>返回。</p>
+<h2 id="Dubbo的实现原理"><a href="#Dubbo的实现原理" class="headerlink" title="Dubbo的实现原理"></a>Dubbo的实现原理</h2><p>dubbo 作为 rpc 框架，实现的效果就是调用远程的方法就像在本地调用一样。如何做到<br>呢？就是本地有对远程方法的描述，包括方法名、参数、返回值，在 dubbo 中是远程和本<br>地使用同样的接口；然后呢，要有对网络通信的封装，要对调用方来说通信细节是完全不<br>可见的，网络通信要做的就是将调用方法的属性通过一定的协议（简单来说就是消息格<br>式）传递到服务端；服务端按照协议解析出调用的信息；执行相应的方法；在将方法的返<br>回值通过协议传递给客户端；客户端再解析；在调用方式上又可以分为同步调用和异步调<br>用；简单来说基本就这个过程</p>
+<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>dubbo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>快速生成Maven archetype模板</title>
     <url>/archives/e0f55110.html</url>
     <content><![CDATA[<h2 id="快捷生成archetype方便修改"><a href="#快捷生成archetype方便修改" class="headerlink" title="快捷生成archetype方便修改"></a>快捷生成archetype方便修改</h2><p>mvn archetype:create-from-project -Darchetype.filteredExtensions=java -DpackageName=com.pearlgo -DartifactId=ec-template</p><a id="more"></a>
