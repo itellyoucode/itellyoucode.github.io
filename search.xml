@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>面试经</title>
-    <url>/archives/4048efa0.html</url>
+    <url>/post/4048efa0/</url>
     <content><![CDATA[<h2 id="java基础："><a href="#java基础：" class="headerlink" title="java基础："></a>java基础：</h2><h3 id="1-HashMap的数据结构是什么？"><a href="#1-HashMap的数据结构是什么？" class="headerlink" title="1.HashMap的数据结构是什么？"></a>1.HashMap的数据结构是什么？</h3><p>JDK版本 实现方式 节点数&gt;=8 节点数&lt;=6<br>1.8以前 数组+单向链表 数组+单向链表 数组+单向链表<br>1.8以后 数组+单向链表+红黑树 数组+红黑树 数组+单向链表<br>寻址算法优化<br>(n - 1) &amp; hash -&gt; 数组里的一个位置</p>
 <h3 id="2、HashSet-是如何保证不重复的"><a href="#2、HashSet-是如何保证不重复的" class="headerlink" title="2、HashSet 是如何保证不重复的"></a>2、HashSet 是如何保证不重复的</h3><p>底层维护了一个HashMap</p>
 <h3 id="3、HashMap-是线程安全的吗，为什么不是线程安全的（最好画图说明多线程环境下不安全）"><a href="#3、HashMap-是线程安全的吗，为什么不是线程安全的（最好画图说明多线程环境下不安全）" class="headerlink" title="3、HashMap 是线程安全的吗，为什么不是线程安全的（最好画图说明多线程环境下不安全）?"></a>3、HashMap 是线程安全的吗，为什么不是线程安全的（最好画图说明多线程环境下不安全）?</h3><p>线程不安全</p>
@@ -46,7 +46,7 @@
 <h2 id="线程池："><a href="#线程池：" class="headerlink" title="线程池："></a>线程池：</h2><h3 id="1-解释线程池的作用？"><a href="#1-解释线程池的作用？" class="headerlink" title="1.解释线程池的作用？"></a>1.解释线程池的作用？</h3><p>1）降低资源消耗；2）提高响应速度；3）提高线程的可管理性。<br>线程的创建和销毁的开销是巨大的，而通过线程池的重用大大减少了这些不必要的开销，当然既然少了这么多消费内存的开销，其线程执行速度也是突飞猛进的提升。</p>
 <p>并发：在某个时间段内，多个程序都处在执行和执行完毕之间；但在一个时间点上只有一个程序在运行。头脑风暴：老鹰妈妈喂小雏鹰食物，小雏鹰很多，而老鹰只有一张嘴，她需要一个个喂过去，到最后每个小雏鹰都可以吃到，但是在一个时间点里只能有一个小雏鹰可以吃到美味的食物。</p>
 <p>并行：在某个时间段里，每个程序按照自己独立异步的速度执行，程序之间互不干扰。头脑风暴：这就好似老鹰妈妈决定这样喂食太费劲于是为每个小雏鹰请了个保姆，这样子在一个时间点里，每个小雏鹰都可以同时吃到食物，而且互相不干扰。</p>
-<h3 id="2-线程池的处理流程？"><a href="#2-线程池的处理流程？" class="headerlink" title="2.线程池的处理流程？"></a>2.线程池的处理流程？</h3><p><img src="/images/loading.png" data-original="/images/pasted-11.png" alt="upload successful"><br>线程池优先要创建出基本线程池大小（corePoolSize）的线程数量，没有达到这个数量时，每次提交新任务都会直接创建一个新线程，当达到了基本线程数量后，又有新任务到达，优先放入等待队列，如果队列满了，才去创建新的线程（不能超过线程池的最大数maxmumPoolSize）</p>
+<h3 id="2-线程池的处理流程？"><a href="#2-线程池的处理流程？" class="headerlink" title="2.线程池的处理流程？"></a>2.线程池的处理流程？</h3><p><img data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/pasted-11.png" alt="upload successful"><br>线程池优先要创建出基本线程池大小（corePoolSize）的线程数量，没有达到这个数量时，每次提交新任务都会直接创建一个新线程，当达到了基本线程数量后，又有新任务到达，优先放入等待队列，如果队列满了，才去创建新的线程（不能超过线程池的最大数maxmumPoolSize）</p>
 <h3 id="3-jdk提供的线程池工具类有哪些，区别是什么？"><a href="#3-jdk提供的线程池工具类有哪些，区别是什么？" class="headerlink" title="3.jdk提供的线程池工具类有哪些，区别是什么？"></a>3.jdk提供的线程池工具类有哪些，区别是什么？</h3><p>newFixedThreadPool<br>创建一个指定工作线程数量的线程池。每当提交一个任务就创建一个工作线程，如果工作线程数量达到线程池初始的最大数，则将提交的任务存入到池队列中。</p>
 <p>newCachedThreadPool<br>创建一个可缓存的线程池。这种类型的线程池特点是：<br>1).工作线程的创建数量几乎没有限制(其实也有限制的,数目为Interger. MAX_VALUE), 这样可灵活的往线程池中添加线程。<br>2).如果长时间没有往线程池中提交任务，即如果工作线程空闲了指定的时间(默认为1分钟)，则该工作线程将自动终止。终止后，如果你又提交了新的任务，则线程池重新创建一个工作线程。</p>
 <p>newSingleThreadExecutor<br>创建一个单线程化的Executor，即只创建唯一的工作者线程来执行任务，如果这个线程异常结束，会有另一个取代它，保证顺序执行(我觉得这点是它的特色)。单工作线程最大的特点是可保证顺序地执行各个任务，并且在任意给定的时间不会有多个线程是活动的 。</p>
@@ -184,10 +184,10 @@
   </entry>
   <entry>
     <title>Java程序员Chrome浏览器必装插件</title>
-    <url>/archives/b0de6b16.html</url>
+    <url>/post/b0de6b16/</url>
     <content><![CDATA[<p>整理了一下自己一直在用的Chrome浏览器插件,之后有觉得好用的也会更新进来</p>
-<h2 id="SQLDelimiter"><a href="#SQLDelimiter" class="headerlink" title="SQLDelimiter"></a><a href="https://chrome.google.com/webstore/detail/sqldelimiter/ngobnmgdnggmcafeblbealjjnpakoghd" target="_blank" rel="noopener">SQLDelimiter</a></h2><p>参数拆分插件,从Excel直接复制或者MySQL查询结果复制,直接转化成带逗号分隔<br><img src="/images/loading.png" data-original="/images/pasted-3.png" alt="upload successful"></p>
-<h2 id="JSON-handle"><a href="#JSON-handle" class="headerlink" title="JSON-handle"></a><a href="https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj" target="_blank" rel="noopener">JSON-handle</a></h2><p>Json格式化或者转成更好看的形式,方便检查数据<br><img src="/images/loading.png" data-original="/images/pasted-4.png" alt="upload successful"></p>
+<h2 id="SQLDelimiter"><a href="#SQLDelimiter" class="headerlink" title="SQLDelimiter"></a><a href="https://chrome.google.com/webstore/detail/sqldelimiter/ngobnmgdnggmcafeblbealjjnpakoghd" target="_blank" rel="noopener">SQLDelimiter</a></h2><p>参数拆分插件,从Excel直接复制或者MySQL查询结果复制,直接转化成带逗号分隔<br><img data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/pasted-3.png" alt="upload successful"></p>
+<h2 id="JSON-handle"><a href="#JSON-handle" class="headerlink" title="JSON-handle"></a><a href="https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj" target="_blank" rel="noopener">JSON-handle</a></h2><p>Json格式化或者转成更好看的形式,方便检查数据<br><img data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/pasted-4.png" alt="upload successful"></p>
 <h2 id="JSON-Formatter"><a href="#JSON-Formatter" class="headerlink" title="JSON Formatter"></a><a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa" target="_blank" rel="noopener">JSON Formatter</a></h2><p>直接格式化http请求返回的json内容</p>
 ]]></content>
       <categories>
@@ -201,7 +201,7 @@
   </entry>
   <entry>
     <title>程序员必须知道的linux命令</title>
-    <url>/archives/b77c3e4.html</url>
+    <url>/post/b77c3e4/</url>
     <content><![CDATA[<h3 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find / -name filename.txt 根据名称查找/目录下的filename.txt文件。</span><br><span class="line">find . -name &quot;*.xml&quot; 递归查找所有的xml文件</span><br><span class="line">find .  -name &quot;*.xml&quot; |xargs grep  &quot;hello world&quot; 递归查找所有文件内容中包含hello world的xml文件</span><br><span class="line">grep -H  &apos;spring&apos; *.xml 查找所以有的包含spring的xml文件</span><br><span class="line">find ./ -size 0 | xargs rm -f &amp; 删除文件大小为零的文件</span><br><span class="line">ls -l | grep &apos;jar&apos; 查找当前目录中的所有jar文件</span><br><span class="line">grep &apos;test&apos; d* 显示所有以d开头的文件中包含test的行。</span><br><span class="line">grep &apos;test&apos; aa bb cc 显示在aa，bb，cc文件中匹配test的行。</span><br><span class="line">grep &apos;[a-z]\&#123;5\&#125;&apos; aa 显示所有包含每个字符串至少有5个连续小写字符的字符串的行。</span><br></pre></td></tr></table></figure>
 <h3 id="查看一个程序是否运行"><a href="#查看一个程序是否运行" class="headerlink" title="查看一个程序是否运行"></a>查看一个程序是否运行</h3><p><code>ps –ef|grep tomcat 查看所有有关tomcat的进程</code></p>
 <h3 id="终止线程"><a href="#终止线程" class="headerlink" title="终止线程"></a>终止线程</h3><p><code>kill -9 19979 终止线程号位19979的线程</code></p>
@@ -274,7 +274,7 @@
   </entry>
   <entry>
     <title>Mysql数据库配置优化</title>
-    <url>/archives/692ce8b8.html</url>
+    <url>/post/692ce8b8/</url>
     <content><![CDATA[<h1 id="tmp-table-size-临时表-用于排序"><a href="#tmp-table-size-临时表-用于排序" class="headerlink" title="tmp_table_size 临时表 (用于排序)"></a>tmp_table_size 临时表 (用于排序)</h1><p>show global status like ‘created_tmp%’; </p>
 <p>| Variable_name | Value | </p>
 <p>| Created_tmp_disk_tables | 21197 | #在磁盘上创建临时表的次数 </p>
@@ -491,7 +491,7 @@
   </entry>
   <entry>
     <title>为何选择logback+slf4j</title>
-    <url>/archives/e2c1fb46.html</url>
+    <url>/post/e2c1fb46/</url>
     <content><![CDATA[<p>无论从设计上还是实现上，Logback相对log4j而言有了相对多的改进。不过尽管难以一一细数，这里还是列举部分理由为什么选择logback而不是log4j。牢记logback与log4j在概念上面是很相似的，它们都是有同一群开发者建立。所以如果你已经对log4j很熟悉，你也可以很快上手logback。如果你喜欢使用log4j,你也许会迷上使用logback。</p>
 <ol>
 <li>更快的执行速度</li>
@@ -528,7 +528,7 @@
 <ol start="12">
 <li>配置文件中的条件处理</li>
 </ol>
-<p>开发者通常需要在不同的目标环境中变换logback的配置文件，例如开发环境，测试环境和生产环境。这些配置文件大体是一样的，除了某部分会有不同。为了避免重复，logback支持配置文件中的条件处理，只需使用<if>,<then>和<else>，那么同一个配置文件就可以在不同的环境中使用了。</p>
+<p>开发者通常需要在不同的目标环境中变换logback的配置文件，例如开发环境，测试环境和生产环境。这些配置文件大体是一样的，除了某部分会有不同。为了避免重复，logback支持配置文件中的条件处理，只需使用<if>,<then>和<else>，那么同一个配置文件就可以在不同的环境中使用了。</else></then></if></p>
 <p>13.过滤</p>
 <p>Logback拥有远比log4j更丰富的过滤能力。例如，让我们假设，有一个相当重要的商业应用部署在生产环境。考虑到大量的交易数据需要处理，记录级别被设置为WARN，那么只有警告和错误信息才会被记录。现在，想象一下，你在开发环境遇到了一个臭虫，但是在测试平台中却很难发现，因为一些环境之间(生产环境/测试环境)的未知差异。</p>
 <p>使用log4j，你只能选择在生产系统中降低记录的级别到DEBUG，来尝试发现问题。但是很不幸，这会生成大量的日志记录，让分析变得困难。更重要的是，多余的日志记录会影响到生产环境的性能。<br>使用logback，你可以选择保留只所有用户的WARN级别的日志，而除了某个用户，例如Alice，而她就是问题的相关用户。当Alice登录系统，她就会以DEBUG级别被记录，而其他用户仍然是以WARN级别来记录日志。这个功能，可以通过在配置文件的XML中添加4行。请在相关章节中查找MDCFilter</p>
@@ -542,9 +542,9 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;configuration scan=&quot;false&quot; debug=&quot;false&quot;&gt;  </span><br><span class="line">  	&lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;%d&#123;mm:ss&#125; %-5level %logger&#123;36&#125; &gt;&gt;&gt; %msg%n&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;appender name=&quot;DEBUG_FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">    	&lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;  </span><br><span class="line">            &lt;level&gt;DEBUG&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;  </span><br><span class="line">    		&lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt; </span><br><span class="line">	    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">	      &lt;!-- daily rollover --&gt;</span><br><span class="line">	      &lt;fileNamePattern&gt;logs/debug.%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</span><br><span class="line">	</span><br><span class="line">	      &lt;!-- keep 30 days&apos; worth of history capped at 3GB total size --&gt;</span><br><span class="line">	      &lt;maxHistory&gt;30&lt;/maxHistory&gt;</span><br><span class="line">	      &lt;totalSizeCap&gt;3GB&lt;/totalSizeCap&gt;</span><br><span class="line">	    &lt;/rollingPolicy&gt;</span><br><span class="line">	    &lt;encoder&gt;</span><br><span class="line">	      &lt;pattern&gt;%d [%thread] [%-5level] %file,%line - %msg%n&lt;/pattern&gt;</span><br><span class="line">	    &lt;/encoder&gt; </span><br><span class="line">    &lt;/appender&gt;  </span><br><span class="line">  </span><br><span class="line">    &lt;appender name=&quot;WARN_FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">    	&lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;  </span><br><span class="line">            &lt;level&gt;WARN&lt;/level&gt;</span><br><span class="line">        &lt;/filter&gt; </span><br><span class="line">	    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">	      &lt;!-- daily rollover --&gt;</span><br><span class="line">	      &lt;fileNamePattern&gt;logs/warn.%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</span><br><span class="line">	</span><br><span class="line">	      &lt;!-- keep 30 days&apos; worth of history capped at 3GB total size --&gt;</span><br><span class="line">	      &lt;maxHistory&gt;30&lt;/maxHistory&gt;</span><br><span class="line">	      &lt;totalSizeCap&gt;3GB&lt;/totalSizeCap&gt;</span><br><span class="line">	    &lt;/rollingPolicy&gt;</span><br><span class="line">	    &lt;encoder&gt;</span><br><span class="line">	      &lt;pattern&gt;%d [%thread] [%-5level] %file,%line - %msg%n&lt;/pattern&gt;</span><br><span class="line">	    &lt;/encoder&gt; </span><br><span class="line">    &lt;/appender&gt; </span><br><span class="line">  </span><br><span class="line">    &lt;root level=&quot;DEBUG&quot;&gt;  </span><br><span class="line">        &lt;appender-ref ref=&quot;DEBUG_FILE&quot; /&gt;  </span><br><span class="line">        &lt;appender-ref ref=&quot;WARN_FILE&quot; /&gt;  </span><br><span class="line">        &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;</span><br><span class="line">    &lt;/root&gt;  </span><br><span class="line">  </span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class TestA &#123;</span><br><span class="line">	static Logger log = LoggerFactory.getLogger(TestB.class);</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		log.trace(&quot;======trace&quot;);  </span><br><span class="line">		log.debug(&quot;======debug&quot;);  </span><br><span class="line">		log.info(&quot;======info&quot;);  </span><br><span class="line">		log.warn(&quot;======warn&quot;);  </span><br><span class="line">		log.error(&quot;======error&quot;); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出结果:</p>
-<p><img src="/images/loading.png" data-original="/images/pasted-1.png" alt="upload successful"></p>
+<p><img data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/pasted-1.png" alt="upload successful"></p>
 <p>日志记录情况:</p>
-<p><img src="/images/loading.png" data-original="/images/pasted-2.png" alt="upload successful"></p>
+<p><img data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/pasted-2.png" alt="upload successful"></p>
 <p>demo每天一个新日志文件,历史数据保留最大30天.日志总占数据量大于3G自动异步删除旧日志</p>
 <p>根节点<code>&lt;configuration&gt;</code>包含的属性：</p>
 <p>scan:</p>
@@ -560,7 +560,7 @@
 <p>如果返回DENY，那么记录事件立即被抛弃，不再经过剩余过滤器；</p>
 <p>如果返回NEUTRAL，那么有序列表里的下一个过滤器会接着处理记录事件；</p>
 <p>如果返回ACCEPT，那么记录事件被立即处理，不再经过剩余过滤器。</p>
-<p><code>&lt;maxHistory&gt;</code>:<br>可选节点，控制保留的归档文件的最大数量，超出数量就删除旧文件。假设设置每个月滚动，且<maxHistory>是6，则只保存最近6个月的文件，删除之前的旧文件。注意，删除旧文件是，那些为了归档而创建的目录也会被删除。</p>
+<p><code>&lt;maxHistory&gt;</code>:<br>可选节点，控制保留的归档文件的最大数量，超出数量就删除旧文件。假设设置每个月滚动，且<maxHistory>是6，则只保存最近6个月的文件，删除之前的旧文件。注意，删除旧文件是，那些为了归档而创建的目录也会被删除。</maxHistory></p>
 <p>独立的日志标签</p>
 <p><code>&lt;logger name=&quot;monitor&quot; additivity=&quot;false&quot; level=&quot;INFO&quot;&gt;</code></p>
 <p>这里通过设置additivity=”false”禁止monitor里的内容向上传递，否则会同时显示在默认的日志中。</p>
@@ -576,13 +576,13 @@
   </entry>
   <entry>
     <title>dubbo学习记录</title>
-    <url>/archives/33b13b3d.html</url>
+    <url>/post/33b13b3d/</url>
     <content><![CDATA[<h2 id="什么是RPC"><a href="#什么是RPC" class="headerlink" title="什么是RPC"></a>什么是RPC</h2><p>分布式计算，远程过程调用（英语：Remote Procedure Call，缩写为 RPC）是一个计算机通信协议。该协议允许运行于一台计算机的程序调用另一个地址空间（通常为一个开放网络的一台计算机）的子程序，而程序员就像调用本地程序一样，无需额外地为这个交互作用编程（无需关注细节）。RPC是一种服务器-客户端（Client/Server）模式，经典实现是一个通过发送请求-接受回应进行信息交互的系统。</p>
 <p>如果涉及的软件采用面向对象编程，那么远程过程调用亦可称作远程调用或远程方法调用，例：Java RMI。</p>
 <p>RPC是一种进程间通信的模式，程序分布在不同的地址空间里。如果在同一主机里，RPC可以通过不同的虚拟地址空间（即便使用相同的物理地址）进行通讯，而在不同的主机间，则通过不同的物理进行交互。许多技术（常常是不兼容）都是基于这种概念而实现的。</p>
 <h2 id="RPC实现原理"><a href="#RPC实现原理" class="headerlink" title="RPC实现原理"></a>RPC实现原理</h2><p>首先需要有处理网络连接通讯的模块，负责连接建立、管理和消息的传输。其次需要有编<br>解码的模块，因为网络通讯都是传输的字节码，需要将我们使用的对象序列化和反序列<br>化。剩下的就是客户端和服务器端的部分，服务器端暴露要开放的服务接口，客户调用服<br>务接口的一个代理实现，这个代理实现负责收集数据、编码并传输给服务器然后等待结果<br>返回。</p>
 <h2 id="Dubbo的实现原理"><a href="#Dubbo的实现原理" class="headerlink" title="Dubbo的实现原理"></a>Dubbo的实现原理</h2><p>dubbo 作为 rpc 框架，实现的效果就是调用远程的方法就像在本地调用一样。如何做到<br>呢？就是本地有对远程方法的描述，包括方法名、参数、返回值，在 dubbo 中是远程和本<br>地使用同样的接口；然后呢，要有对网络通信的封装，要对调用方来说通信细节是完全不<br>可见的，网络通信要做的就是将调用方法的属性通过一定的协议（简单来说就是消息格<br>式）传递到服务端；服务端按照协议解析出调用的信息；执行相应的方法；在将方法的返<br>回值通过协议传递给客户端；客户端再解析；在调用方式上又可以分为同步调用和异步调<br>用；简单来说基本就这个过程</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
       <categories>
         <category>java</category>
       </categories>
@@ -592,7 +592,7 @@
   </entry>
   <entry>
     <title>快速生成Maven archetype模板</title>
-    <url>/archives/e0f55110.html</url>
+    <url>/post/e0f55110/</url>
     <content><![CDATA[<h2 id="快捷生成archetype方便修改"><a href="#快捷生成archetype方便修改" class="headerlink" title="快捷生成archetype方便修改"></a>快捷生成archetype方便修改</h2><p>mvn archetype:create-from-project -Darchetype.filteredExtensions=java -DpackageName=com.pearlgo -DartifactId=ec-template</p>
 <h3 id="上传archetype到私服"><a href="#上传archetype到私服" class="headerlink" title="上传archetype到私服"></a>上传archetype到私服</h3><p>添加配置pom配置,是配置到archetype的pom</p>
 <!-- 配置部署的远程仓库 -->
@@ -622,7 +622,7 @@
   </entry>
   <entry>
     <title>Linux操作</title>
-    <url>/archives/7a00f2af.html</url>
+    <url>/post/7a00f2af/</url>
     <content><![CDATA[<h3 id="找到根目录下所有的以test开头的文件并把查找结果当做参数传给rm-rf命令进行删除："><a href="#找到根目录下所有的以test开头的文件并把查找结果当做参数传给rm-rf命令进行删除：" class="headerlink" title="找到根目录下所有的以test开头的文件并把查找结果当做参数传给rm -rf命令进行删除："></a>找到根目录下所有的以test开头的文件并把查找结果当做参数传给rm -rf命令进行删除：</h3><p>1、find / -name “test<em>” |xargs rm -rf<br>2、find / -name “test</em>” -exec rm -rf {} ;<br>3、rm -rf $(find / -name “test”)</p>
 <h3 id="如果想指定递归深度，可以这样："><a href="#如果想指定递归深度，可以这样：" class="headerlink" title="如果想指定递归深度，可以这样："></a>如果想指定递归深度，可以这样：</h3><p>1、find / -maxdepth 3 -name “<em>.mp3” |xargs rm -rf<br>2、find / -maxdepth 3 -name “test</em>” -exec rm -rf {} ;<br>3、rm -rf $(find / -maxdepth 3 -name “test”)<br>这样只会查找三层目录中符合条件的文件并删除掉！ </p>
 <h3 id="使用特定用户重启"><a href="#使用特定用户重启" class="headerlink" title="使用特定用户重启"></a>使用特定用户重启</h3><p>sudo -u apprunner bash ./start.sh restart</p>
@@ -694,7 +694,7 @@
   </entry>
   <entry>
     <title>IDEA常用快捷键</title>
-    <url>/archives/566321e7.html</url>
+    <url>/post/566321e7/</url>
     <content><![CDATA[<h2 id="记录原因"><a href="#记录原因" class="headerlink" title="记录原因"></a>记录原因</h2><p>因为经常忘记快捷键,所以写一遍记录常用快捷键的博客,方便忘记的时候可以快速查找,不用到处翻。</p>
 <a id="more"></a>
 <h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><p>Ctrl+Shift + Enter，语句完成<br>“！”，否定完成，输入表达式时按 “！”键<br>Ctrl+E，最近的文件<br>Ctrl+Shift+E，最近更改的文件<br>Shift+Click，可以关闭文件<br>Ctrl+[ OR ]，可以跑到大括号的开头与结尾<br>Ctrl+F12，可以显示当前文件的结构<br>Ctrl+F7，可以查询当前元素在当前文件中的引用，然后按 F3 可以选择<br>Ctrl+N，可以快速打开类<br>Ctrl+Shift+N，可以快速打开文件<br>Alt+Q，可以看到当前方法的声明<br>Ctrl+P，可以显示参数信息<br>Ctrl+Shift+Insert，可以选择剪贴板内容并插入<br>Alt+Insert，可以生成构造器/Getter/Setter等<br>Ctrl+Alt+V，可以引入变量。例如：new String(); 自动导入变量定义<br>Ctrl+Alt+T，可以把代码包在一个块内，例如：try/catch<br>Ctrl+Enter，导入包，自动修正<br>Ctrl+Alt+L，格式化代码<br>Ctrl+Alt+I，将选中的代码进行自动缩进编排，这个功能在编辑 JSP 文件时也可以工作<br>Ctrl+Alt+O，优化导入的类和包<br>Ctrl+R，替换文本<br>Ctrl+F，查找文本<br>Ctrl+Shift+Space，自动补全代码<br>Ctrl+空格，代码提示（与系统输入法快捷键冲突）<br>Ctrl+Shift+Alt+N，查找类中的方法或变量<br>Alt+Shift+C，最近的更改<br>Alt+Shift+Up/Down，上/下移一行<br>Shift+F6，重构 – 重命名<br>Ctrl+X，删除行<br>Ctrl+D，复制行<br>Ctrl+/或Ctrl+Shift+/，注释（//或者/**/）<br>Ctrl+J，自动代码（例如：serr）<br>Ctrl+Alt+J，用动态模板环绕<br>Ctrl+H，显示类结构图（类的继承层次）<br>Ctrl+Q，显示注释文档<br>Alt+F1，查找代码所在位置<br>Alt+1，快速打开或隐藏工程面板<br>Ctrl+Alt+left/right，返回至上次浏览的位置<br>Alt+left/right，切换代码视图<br>Alt+Up/Down，在方法间快速移动定位<br>Ctrl+Shift+Up/Down，向上/下移动语句<br>F2 或 Shift+F2，高亮错误或警告快速定位<br>Tab，代码标签输入完成后，按 Tab，生成代码<br>Ctrl+Shift+F7，高亮显示所有该文本，按 Esc 高亮消失<br>Alt+F3，逐个往下查找相同文本，并高亮显示<br>Ctrl+Up/Down，光标中转到第一行或最后一行下<br>Ctrl+B/Ctrl+Click，快速打开光标处的类或方法（跳转到定义处）<br>Ctrl+Alt+B，跳转到方法实现处<br>Ctrl+Shift+Backspace，跳转到上次编辑的地方<br>Ctrl+O，重写方法<br>Ctrl+Alt+Space，类名自动完成<br>Ctrl+Alt+Up/Down，快速跳转搜索结果<br>Ctrl+Shift+J，整合两行<br>Alt+F8，计算变量值<br>Ctrl+Shift+V，可以将最近使用的剪贴板内容选择插入到文本<br>Ctrl+Alt+Shift+V，简单粘贴<br>Shift+Esc，不仅可以把焦点移到编辑器上，而且还可以隐藏当前（或最后活动的）工具窗口<br>F12，把焦点从编辑器移到最近使用的工具窗口<br>Shift+F1，要打开编辑器光标字符处使用的类或者方法 Java 文档的浏览器<br>Ctrl+W，可以选择单词继而语句继而行继而函数<br>Ctrl+Shift+W，取消选择光标所在词<br>Alt+F7，查找整个工程中使用地某一个类、方法或者变量的位置<br>Ctrl+I，实现方法<br>Ctrl+Shift+U，大小写转化<br>Ctrl+Y，删除当前行<br>Shift+Enter，向下插入新行<br>psvm/sout，main/System.out.println(); Ctrl+J，查看更多<br>Ctrl+Shift+F，全局查找<br>Ctrl+F，查找/Shift+F3，向上查找/F3，向下查找<br>Ctrl+Shift+S，高级搜索<br>Ctrl+U，转到父类<br>Ctrl+Alt+S，打开设置对话框<br>Alt+Shift+Inert，开启/关闭列选择模式<br>Ctrl+Alt+Shift+S，打开当前项目/模块属性<br>Ctrl+G，定位行<br>Alt+Home，跳转到导航栏<br>Ctrl+Enter，上插一行<br>Ctrl+Backspace，按单词删除<br>Ctrl+”+/-”，当前方法展开、折叠<br>Ctrl+Shift+”+/-”，全部展开、折叠</p>
@@ -711,7 +711,7 @@
   </entry>
   <entry>
     <title>Markdown基本语法</title>
-    <url>/archives/8979b4c0.html</url>
+    <url>/post/8979b4c0/</url>
     <content><![CDATA[<h2 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h2><p>在想要设置为标题的文字前面加#来表示<br>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</p>
 <p>注：标准语法一般在#后跟个空格再写文字，貌似简书不加空格也行。</p>
 <p>示例：</p>
@@ -725,7 +725,7 @@
 <p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em><br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p>
 <h2 id="三、引用"><a href="#三、引用" class="headerlink" title="三、引用"></a>三、引用</h2><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br>n个…<br>貌似可以一直加下去，但没神马卵用</p>
 <p>示例：</p>
-<p><code>&gt;这是引用的内容</code></br><br><code>&gt;&gt;这是引用的内容</code></br><br><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</code></br><br>效果如下：</p>
+<p><code>&gt;这是引用的内容</code><br><br><code>&gt;&gt;这是引用的内容</code><br><br><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</code><br><br>效果如下：</p>
 <blockquote>
 <p>这是引用的内容</p>
 <blockquote>
@@ -751,7 +751,7 @@
 </blockquote>
 <h2 id="四、分割线"><a href="#四、分割线" class="headerlink" title="四、分割线"></a>四、分割线</h2><p>三个或者三个以上的 - 或者 * 都可以。</p>
 <p>示例：</p>
-<p><code>---</code></br><br><code>----</code></br><br><code>***</code></br><br><code>*****</code></br><br>效果如下：<br>可以看到，显示效果是一样的。</p>
+<p><code>---</code><br><br><code>----</code><br><br><code>***</code><br><br><code>*****</code><br><br>效果如下：<br>可以看到，显示效果是一样的。</p>
 <hr>
 <hr>
 <hr>
@@ -763,7 +763,7 @@
 <p>blockchain<br>上传本地图片直接点击导航栏的图片标志，选择图片即可</p>
 <h2 id="六、超链接"><a href="#六、超链接" class="headerlink" title="六、超链接"></a>六、超链接</h2><p>语法：</p>
 <p><a href="超链接地址" title="超链接title">超链接名</a><br>title可加可不加<br>示例：</p>
-<p><code>[简书](http://jianshu.com)</code></br><br><code>[百度](http://baidu.com)</code></br><br>效果如下：</p>
+<p><code>[简书](http://jianshu.com)</code><br><br><code>[百度](http://baidu.com)</code><br><br>效果如下：</p>
 <p><a href="http://jianshu.com" target="_blank" rel="noopener">简书</a><br><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p>
 <p>注：Markdown本身语法不支持链接在新页面中打开，貌似简书做了处理，是可以的。别的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</p>
 <p><code>&lt;a href=&quot;超链接地址&quot; target=&quot;_blank&quot;&gt;超链接名&lt;/a&gt;</code></p>
