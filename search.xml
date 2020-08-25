@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ElasticSearch入门</title>
+    <url>/post/24e8e8ba/</url>
+    <content><![CDATA[<h1 id="概念理解"><a href="#概念理解" class="headerlink" title="概念理解:"></a>概念理解:</h1><h2 id="什么是搜索"><a href="#什么是搜索" class="headerlink" title="什么是搜索?"></a>什么是搜索?</h2><p>百度、谷歌 != 搜索</p>
+<p>垂直搜索（站内搜索）<br>互联网的搜索：电商网站，新闻网站，各种app<br>IT系统的搜索：员工搜索,项目管理等<br>搜索，就是在任何场景下，找寻你想要的信息，这个时候，会输入一段你要搜索的关键字，然后就期望找到这个关键字相关的有些信息</p>
+<h2 id="数据库做搜索是怎样做的"><a href="#数据库做搜索是怎样做的" class="headerlink" title="数据库做搜索是怎样做的?"></a>数据库做搜索是怎样做的?</h2><p><img data-src="/images/loading.png" data-original="https://note.youdao.com/yws/api/personal/file/94C3FB9F14B24B819D8D971003B9F983?method=download&shareKey=5bfc65ebd7be4a40bf301dacd6ce52aa" alt="数据库搜索"></p>
+<h2 id="全文检索和倒排索引是什么"><a href="#全文检索和倒排索引是什么" class="headerlink" title="全文检索和倒排索引是什么?"></a>全文检索和倒排索引是什么?</h2><p><img data-src="/images/loading.png" data-original="https://note.youdao.com/yws/api/personal/file/10D78E8DC45D4027835D373203B0915C?method=download&shareKey=3e907eba178438f048f96fc2674e27bc" alt="倒排索引和全文检索"></p>
+<h2 id="什么是ElasticSearch"><a href="#什么是ElasticSearch" class="headerlink" title="什么是ElasticSearch?"></a>什么是ElasticSearch?</h2><p>Elasticsearch，分布式，高性能，高可用，可伸缩的搜索和分析系统<br><img data-src="/images/loading.png" data-original="https://note.youdao.com/yws/api/personal/file/E2F2F423BFBB46D2BFD36E982B63AD64?method=download&shareKey=405e6beea474f13ca434ef22bc21f086" alt="架构"></p>
+<h3 id="elasticsearch的核心概念"><a href="#elasticsearch的核心概念" class="headerlink" title="elasticsearch的核心概念"></a>elasticsearch的核心概念</h3><ol>
+<li>Near Realtime（NRT）：近实时，两个意思，从写入数据到数据可以被搜索到有一个小延迟（大概1秒）；基于es执行搜索和分析可以达到秒级</li>
+<li>Cluster：集群，包含多个节点，每个节点属于哪个集群是通过一个配置（集群名称，默认是elasticsearch）来决定的，对于中小型应用来说，刚开始一个集群就一个节点很正常</li>
+<li>Node：节点，集群中的一个节点，节点也有一个名称（默认是随机分配的），节点名称很重要（在执行运维管理操作的时候），默认节点会去加入一个名称为“elasticsearch”的集群，如果直接启动一堆节点，那么它们会自动组成一个elasticsearch集群，当然一个节点也可以组成一个elasticsearch集群</li>
+<li>Document&amp;field：文档，es中的最小数据单元，一个document可以是一条客户数据，一条商品分类数据，一条订单数据，通常用JSON数据结构表示，每个index下的type中，都可以去存储多个document。一个document里面有多个field，每个field就是一个数据字段。</li>
+<li>Index：索引，包含一堆有相似结构的文档数据，比如可以有一个客户索引，商品分类索引，订单索引，索引有一个名称。一个index包含很多document，一个index就代表了一类类似的或者相同的document。比如说建立一个product index，商品索引，里面可能就存放了所有的商品数据，所有的商品document。</li>
+<li>Type：类型，<del>每个索引里都可以有一个或多个type，type是index中的一个逻辑数据分类，一个type下的document，都有相同的field，比如博客系统，有一个索引，可以定义用户数据type，博客数据type，评论数据type。</del> ==6.0兼容多type,7.0开始新版本一个索引只允许有一个type==</li>
+<li>shard：单台机器无法存储大量数据，es可以将一个索引中的数据切分为多个shard，分布在多台服务器上存储。有了shard就可以横向扩展，存储更多数据，让搜索和分析等操作分布到多台服务器上去执行，提升吞吐量和性能。每个shard都是一个lucene index。</li>
+<li>replica：任何一个服务器随时可能故障或宕机，此时shard可能就会丢失，因此可以为每个shard创建多个replica副本。replica可以在shard故障时提供备用服务，保证数据不丢失，多个replica还可以提升搜索操作的吞吐量和性能。primary shard（建立索引时一次设置，不能修改，默认5个），replica shard（随时修改数量，默认1个），默认每个索引10个shard，5个primary shard，5个replica shard，最小的高可用配置，是2台服务器。</li>
+<li>Elasticsearch 的recovery概念:<br>Elasticsearch 的recovery代表的是数据恢复或者叫做数据重新分布。<br>elasticsearch 当有节点加入或退出时时它会根据机器的负载对索引分片进行重新分配，当挂掉的节点再次重新启动的时候也会进行数据恢复。</li>
+</ol>
+<h3 id="elasticsearch核心概念-vs-数据库核心概念"><a href="#elasticsearch核心概念-vs-数据库核心概念" class="headerlink" title="elasticsearch核心概念 vs. 数据库核心概念"></a>elasticsearch核心概念 vs. 数据库核心概念</h3><table>
+<thead>
+<tr>
+<th>Elasticsearch</th>
+<th>数据库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Document</td>
+<td>行</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>表</td>
+</tr>
+<tr>
+<td>Index</td>
+<td>库</td>
+</tr>
+</tbody></table>
+<p><img data-src="/images/loading.png" data-original="/images/pasted-12.png" alt="集群结构"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>elsticsearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>面试经</title>
     <url>/post/4048efa0/</url>
     <content><![CDATA[<h2 id="java基础："><a href="#java基础：" class="headerlink" title="java基础："></a>java基础：</h2><h3 id="1-HashMap的数据结构是什么？"><a href="#1-HashMap的数据结构是什么？" class="headerlink" title="1.HashMap的数据结构是什么？"></a>1.HashMap的数据结构是什么？</h3><p>JDK版本 实现方式 节点数&gt;=8 节点数&lt;=6<br>1.8以前 数组+单向链表 数组+单向链表 数组+单向链表<br>1.8以后 数组+单向链表+红黑树 数组+红黑树 数组+单向链表<br>寻址算法优化<br>(n - 1) &amp; hash -&gt; 数组里的一个位置</p>
