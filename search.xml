@@ -1,6 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ElasticSearch核心知识学习</title>
+    <url>/post/24e8e8ba/</url>
+    <content><![CDATA[<h1 id="概念理解"><a href="#概念理解" class="headerlink" title="概念理解:"></a>概念理解:</h1><h2 id="什么是搜索"><a href="#什么是搜索" class="headerlink" title="什么是搜索?"></a>什么是搜索?</h2><p>百度、谷歌 != 搜索</p>
+<p>垂直搜索（站内搜索）<br>互联网的搜索：电商网站，新闻网站，各种app<br>IT系统的搜索：员工搜索,项目管理等<br>搜索，就是在任意的场景通过一些关键信息,找出对应的数据的操作。</p>
+<h2 id="数据库做搜索是怎样做的"><a href="#数据库做搜索是怎样做的" class="headerlink" title="数据库做搜索是怎样做的?"></a>数据库做搜索是怎样做的?</h2><p><img data-src="/images/loading.png" data-original="/images/pasted-15.png" alt="数据库搜索"></p>
+<h2 id="全文检索和倒排索引是什么"><a href="#全文检索和倒排索引是什么" class="headerlink" title="全文检索和倒排索引是什么?"></a>全文检索和倒排索引是什么?</h2><p><img data-src="/images/loading.png" data-original="/images/pasted-14.png" alt="倒排索引和全文检索"></p>
+<h2 id="什么是ElasticSearch"><a href="#什么是ElasticSearch" class="headerlink" title="什么是ElasticSearch?"></a>什么是ElasticSearch?</h2><ol>
+<li>基于lucene，隐藏复杂性，提供简单易用的restful api接口、java api接口（还有其他语言的api接口）</li>
+<li>开箱即用，优秀的默认参数，不需要任何额外设置，完全开源</li>
+<li>Elasticsearch，分布式，高性能，高可用，可伸缩的搜索和分析系统</li>
+</ol>
+<p><img data-src="/images/loading.png" data-original="/images/pasted-13.png" alt="架构"></p>
+<h3 id="elasticsearch的核心概念"><a href="#elasticsearch的核心概念" class="headerlink" title="elasticsearch的核心概念"></a>elasticsearch的核心概念</h3><ol>
+<li>Near Realtime（NRT）：近实时，两个意思，从写入数据到数据可以被搜索到有一个小延迟（大概1秒）；基于es执行搜索和分析可以达到秒级</li>
+<li>cluster：代表一个集群，集群中有多个节点，其中有一个为主节点，这个主节点是可以通过选举产生的，主从节点是对于集群内部来说的。es的一个概念就是去中心化，字面上理解就是无中心节点，这是对于集群外部来说的，因为从外部来看es集群，在逻辑上是个整体，你与任何一个节点的通信和与整个es集群通信是等价的。</li>
+<li>shards：代表索引分片，es可以把一个完整的索引分成多个分片，这样的好处是可以把一个大的索引拆分成多个，分布到不同的节点上。构成分布式搜索。分片的数量只能在索引创建前指定，并且索引创建后不能更改。</li>
+<li>replicas：代表索引副本，es可以设置多个索引的副本，副本的作用一是提高系统的容错性，当某个节点某个分片损坏或丢失时可以从副本中恢复。二是提高es的查询效率，es会自动对搜索请求进行负载均衡。</li>
+<li>recovery：代表数据恢复或叫数据重新分布，es在有节点加入或退出时会根据机器的负载对索引分片进行重新分配，挂掉的节点重新启动时也会进行数据恢复。</li>
+<li>river：代表es的一个数据源，也是其它存储方式（如：数据库）同步数据到es的一个方法。它是以插件方式存在的一个es服务，通过读取river中的数据并把它索引到es中，官方的river有couchDB的，RabbitMQ的，Twitter的，Wikipedia的。</li>
+<li>gateway：代表es索引快照的存储方式，es默认是先把索引存放到内存中，当内存满了时再持久化到本地硬盘。gateway对索引快照进行存储，当这个es集群关闭再重新启动时就会从gateway中读取索引备份数据。es支持多种类型的gateway，有本地文件系统（默认），分布式文件系统，Hadoop的HDFS和amazon的s3云存储服务。</li>
+<li>discovery.zen：代表es的自动发现节点机制，es是一个基于p2p的系统，它先通过广播寻找存在的节点，再通过多播协议来进行节点之间的通信，同时也支持点对点的交互。</li>
+<li>Transport：代表es内部节点或集群与客户端的交互方式，默认内部是使用tcp协议进行交互，同时它支持http协议（json格式）、thrift、servlet、memcached、zeroMQ等的传输协议（通过插件方式集成）。</li>
+</ol>
+<h3 id="elasticsearch核心概念-vs-数据库核心概念"><a href="#elasticsearch核心概念-vs-数据库核心概念" class="headerlink" title="elasticsearch核心概念 vs. 数据库核心概念"></a>elasticsearch核心概念 vs. 数据库核心概念</h3><table>
+<thead>
+<tr>
+<th>Elasticsearch</th>
+<th>数据库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Document</td>
+<td>行</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>表</td>
+</tr>
+<tr>
+<td>Index</td>
+<td>库</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Index：索引，包含一堆有相似结构的文档数据，比如可以有一个客户索引，商品分类索引，订单索引，索引有一个名称。一个index包含很多document，一个index就代表了一类类似的或者相同的document。比如说建立一个product index，商品索引，里面可能就存放了所有的商品数据，所有的商品document。</li>
+<li>Type：类型，<del>每个索引里都可以有一个或多个type，type是index中的一个逻辑数据分类，一个type下的document，都有相同的field，比如博客系统，有一个索引，可以定义用户数据type，博客数据type，评论数据type。</del> ==6.0版本兼容多Type,7.0后一个Index只支持一个Type==</li>
+<li>Document&amp;field：文档，es中的最小数据单元，一个document可以是一条客户数据，一条商品分类数据，一条订单数据，通常用JSON数据结构表示，每个index下的type中，都可以去存储多个document。一个document里面有多个field，每个field就是一个数据字段。</li>
+</ul>
+<h2 id="集群详解"><a href="#集群详解" class="headerlink" title="集群详解"></a>集群详解</h2><p><img data-src="/images/loading.png" data-original="/images/pasted-12.png" alt="集群结构"></p>
+<h3 id="基础架构"><a href="#基础架构" class="headerlink" title="基础架构"></a>基础架构</h3><p><img data-src="/images/loading.png" data-original="/images/pasted-18.png" alt="基础架构"></p>
+<ul>
+<li>复杂的分布式机制,比如:分片、副本、负载均衡、路由等等都被隐藏起来。</li>
+<li>Elasticsearch的垂直扩容与水平扩容<ul>
+<li>垂直扩容：购买更好的服务</li>
+<li>水平扩容：购买更多普通服务加入集群</li>
+</ul>
+</li>
+<li>增减或减少节点时的数据rebalance,尽量保持负载均衡</li>
+<li>master节点概念<ul>
+<li>创建或删除索引</li>
+<li>增加或删除节点</li>
+</ul>
+</li>
+<li>节点平等的分布式架构<ul>
+<li>节点对等，每个节点都能接收所有的请求</li>
+<li>自动请求路由</li>
+<li>响应收集</li>
+</ul>
+</li>
+</ul>
+<h3 id="容错机制：master选举，replica容错，数据恢复"><a href="#容错机制：master选举，replica容错，数据恢复" class="headerlink" title="容错机制：master选举，replica容错，数据恢复"></a>容错机制：master选举，replica容错，数据恢复</h3><p><img data-src="/images/loading.png" data-original="/images/pasted-17.png" alt="容错机制"></p>
+<ol>
+<li>9 shard，3 node</li>
+<li>master node宕机，自动master选举，集群状态:red</li>
+<li>replica容错：新master将replica提升为primary shard，集群状态:yellow</li>
+<li>重启宕机node，master copy replica到该node，使用原有的shard并同步宕机后的修改，集群状态:green</li>
+</ol>
+<h3 id="路由机制"><a href="#路由机制" class="headerlink" title="路由机制"></a>路由机制</h3><p><img data-src="/images/loading.png" data-original="/images/pasted-19.png" alt="路由机制"></p>
+<ul>
+<li>路由算法:<code>shard_num = hash(_routing) % num_primary_shards</code><ul>
+<li>其中 _routing 是一个可变值，默认是文档的 _id 的值 ，也可以设置成一个自定义的值。 _routing 通过 hash 函数生成一个数字，然后这个数字再除以 num_of_primary_shards （主分片的数量）后得到余数 。这个分布在 0 到 number_of_primary_shards-1 之间的余数，就是我们所寻求的文档所在分片的位置。这就解释了为什么我们要在创建索引的时候就确定好主分片的数量 并且永远不会改变这个数量：因为如果数量变化了，那么所有之前路由的值都会无效，文档也再也找不到了。</li>
+</ul>
+</li>
+<li>假设你有一个100个分片的索引。当一个请求在集群上执行时会发生什么呢？<ol>
+<li>这个搜索的请求会被发送到一个节点</li>
+<li>接收到这个请求的节点，将这个查询广播到这个索引的每个分片上（可能是主分片，也可能是复本分片）</li>
+<li>每个分片执行这个搜索查询并返回结果</li>
+<li>结果在通道节点上合并、排序并返回给用户</li>
+</ol>
+</li>
+<li>可自定义路由,例如将相同的商户(merchant_id)数据路由到同一个shard</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>elsticsearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>面试经</title>
     <url>/post/4048efa0/</url>
     <content><![CDATA[<h2 id="java基础："><a href="#java基础：" class="headerlink" title="java基础："></a>java基础：</h2><h3 id="1-HashMap的数据结构是什么？"><a href="#1-HashMap的数据结构是什么？" class="headerlink" title="1.HashMap的数据结构是什么？"></a>1.HashMap的数据结构是什么？</h3><p>JDK版本 实现方式 节点数&gt;=8 节点数&lt;=6<br>1.8以前 数组+单向链表 数组+单向链表 数组+单向链表<br>1.8以后 数组+单向链表+红黑树 数组+红黑树 数组+单向链表<br>寻址算法优化<br>(n - 1) &amp; hash -&gt; 数组里的一个位置</p>
