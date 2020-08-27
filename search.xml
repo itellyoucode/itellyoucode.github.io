@@ -5,14 +5,14 @@
     <url>/post/24e8e8ba/</url>
     <content><![CDATA[<h1 id="概念理解"><a href="#概念理解" class="headerlink" title="概念理解:"></a>概念理解:</h1><h2 id="什么是搜索"><a href="#什么是搜索" class="headerlink" title="什么是搜索?"></a>什么是搜索?</h2><p>百度、谷歌 != 搜索</p>
 <p>垂直搜索（站内搜索）<br>互联网的搜索：电商网站，新闻网站，各种app<br>IT系统的搜索：员工搜索,项目管理等<br>搜索，就是在任意的场景通过一些关键信息,找出对应的数据的操作。</p>
-<h2 id="数据库做搜索是怎样做的"><a href="#数据库做搜索是怎样做的" class="headerlink" title="数据库做搜索是怎样做的?"></a>数据库做搜索是怎样做的?</h2><p><img src="/images/loading.png" data-original="/images/pasted-15.png" alt="数据库搜索"></p>
-<h2 id="全文检索和倒排索引是什么"><a href="#全文检索和倒排索引是什么" class="headerlink" title="全文检索和倒排索引是什么?"></a>全文检索和倒排索引是什么?</h2><p><img src="/images/loading.png" data-original="/images/pasted-14.png" alt="倒排索引和全文检索"></p>
+<h2 id="数据库做搜索是怎样做的"><a href="#数据库做搜索是怎样做的" class="headerlink" title="数据库做搜索是怎样做的?"></a>数据库做搜索是怎样做的?</h2><p><img data-src="/images/loading.png" data-original="/images/pasted-15.png" alt="数据库搜索"></p>
+<h2 id="全文检索和倒排索引是什么"><a href="#全文检索和倒排索引是什么" class="headerlink" title="全文检索和倒排索引是什么?"></a>全文检索和倒排索引是什么?</h2><p><img data-src="/images/loading.png" data-original="/images/pasted-14.png" alt="倒排索引和全文检索"></p>
 <h2 id="什么是ElasticSearch"><a href="#什么是ElasticSearch" class="headerlink" title="什么是ElasticSearch?"></a>什么是ElasticSearch?</h2><ol>
 <li>基于lucene，隐藏复杂性，提供简单易用的restful api接口、java api接口（还有其他语言的api接口）</li>
 <li>开箱即用，优秀的默认参数，不需要任何额外设置，完全开源</li>
 <li>Elasticsearch，分布式，高性能，高可用，可伸缩的搜索和分析系统</li>
 </ol>
-<p><img src="/images/loading.png" data-original="/images/pasted-13.png" alt="架构"></p>
+<p><img data-src="/images/loading.png" data-original="/images/pasted-13.png" alt="架构"></p>
 <h3 id="elasticsearch的核心概念"><a href="#elasticsearch的核心概念" class="headerlink" title="elasticsearch的核心概念"></a>elasticsearch的核心概念</h3><ol>
 <li>Near Realtime（NRT）：近实时，两个意思，从写入数据到数据可以被搜索到有一个小延迟（大概1秒）；基于es执行搜索和分析可以达到秒级</li>
 <li>cluster：代表一个集群，集群中有多个节点，其中有一个为主节点，这个主节点是可以通过选举产生的，主从节点是对于集群内部来说的。es的一个概念就是去中心化，字面上理解就是无中心节点，这是对于集群外部来说的，因为从外部来看es集群，在逻辑上是个整体，你与任何一个节点的通信和与整个es集群通信是等价的。</li>
@@ -49,8 +49,8 @@
 <li>Type：类型，<del>每个索引里都可以有一个或多个type，type是index中的一个逻辑数据分类，一个type下的document，都有相同的field，比如博客系统，有一个索引，可以定义用户数据type，博客数据type，评论数据type。</del> $\color{red}{6.0版本兼容多Type,7.0后一个Index只支持一个Type}$</li>
 <li>Document&amp;field：文档，es中的最小数据单元，一个document可以是一条客户数据，一条商品分类数据，一条订单数据，通常用JSON数据结构表示，每个index下的type中，都可以去存储多个document。一个document里面有多个field，每个field就是一个数据字段。</li>
 </ul>
-<h2 id="集群详解"><a href="#集群详解" class="headerlink" title="集群详解"></a>集群详解</h2><p><img src="/images/loading.png" data-original="/images/pasted-12.png" alt="集群结构"></p>
-<h3 id="基础架构"><a href="#基础架构" class="headerlink" title="基础架构"></a>基础架构</h3><p><img src="/images/loading.png" data-original="/images/pasted-18.png" alt="基础架构"></p>
+<h2 id="集群详解"><a href="#集群详解" class="headerlink" title="集群详解"></a>集群详解</h2><p><img data-src="/images/loading.png" data-original="/images/pasted-12.png" alt="集群结构"></p>
+<h3 id="基础架构"><a href="#基础架构" class="headerlink" title="基础架构"></a>基础架构</h3><p><img data-src="/images/loading.png" data-original="/images/pasted-18.png" alt="基础架构"></p>
 <ul>
 <li>复杂的分布式机制,比如:分片、副本、负载均衡、路由等等都被隐藏起来。</li>
 <li>Elasticsearch的垂直扩容与水平扩容<ul>
@@ -71,14 +71,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="容错机制：master选举，replica容错，数据恢复"><a href="#容错机制：master选举，replica容错，数据恢复" class="headerlink" title="容错机制：master选举，replica容错，数据恢复"></a>容错机制：master选举，replica容错，数据恢复</h3><p><img src="/images/loading.png" data-original="/images/pasted-17.png" alt="容错机制"></p>
+<h3 id="容错机制：master选举，replica容错，数据恢复"><a href="#容错机制：master选举，replica容错，数据恢复" class="headerlink" title="容错机制：master选举，replica容错，数据恢复"></a>容错机制：master选举，replica容错，数据恢复</h3><p><img data-src="/images/loading.png" data-original="/images/pasted-17.png" alt="容错机制"></p>
 <ol>
 <li>9 shard，3 node</li>
 <li>master node宕机，自动master选举，集群状态:red</li>
 <li>replica容错：新master将replica提升为primary shard，集群状态:yellow</li>
 <li>重启宕机node，master copy replica到该node，使用原有的shard并同步宕机后的修改，集群状态:green</li>
 </ol>
-<h2 id="分布式增删改查"><a href="#分布式增删改查" class="headerlink" title="分布式增删改查"></a>分布式增删改查</h2><h3 id="路由机制"><a href="#路由机制" class="headerlink" title="路由机制"></a>路由机制</h3><p><img src="/images/loading.png" data-original="/images/pasted-19.png" alt="路由机制"></p>
+<h2 id="分布式增删改查"><a href="#分布式增删改查" class="headerlink" title="分布式增删改查"></a>分布式增删改查</h2><h3 id="路由机制"><a href="#路由机制" class="headerlink" title="路由机制"></a>路由机制</h3><p><img data-src="/images/loading.png" data-original="/images/pasted-19.png" alt="路由机制"></p>
 <ul>
 <li>路由算法:<code>shard_num = hash(_routing) % num_primary_shards</code><ul>
 <li>其中 _routing 是一个可变值，默认是文档的 _id 的值 ，也可以设置成一个自定义的值。 _routing 通过 hash 函数生成一个数字，然后这个数字再除以 num_of_primary_shards （主分片的数量）后得到余数 。这个分布在 0 到 number_of_primary_shards-1 之间的余数，就是我们所寻求的文档所在分片的位置。这就解释了为什么我们要在创建索引的时候就确定好主分片的数量 并且永远不会改变这个数量：因为如果数量变化了，那么所有之前路由的值都会无效，文档也再也找不到了。</li>
@@ -93,7 +93,7 @@
 </li>
 <li>可自定义路由,例如将相同的商户(merchant_id)数据路由到同一个shard,好处是查同一商户数据可以减少网络,路由开销<h3 id="新建、-索引和删除文档"><a href="#新建、-索引和删除文档" class="headerlink" title="新建、 索引和删除文档"></a>新建、 索引和删除文档</h3>新建、 索引和删除请求都是写(write)操作， 它们必须在主分片上成功完成才能复制到相关的<br>复制分片上。</li>
 </ul>
-<p><img src="/images/loading.png" data-original="/images/pasted-20.png" alt="交互图"><br>下面我们罗列在主分片和复制分片上成功新建、 索引或删除一个文档必要的顺序步骤：</p>
+<p><img data-src="/images/loading.png" data-original="/images/pasted-20.png" alt="交互图"><br>下面我们罗列在主分片和复制分片上成功新建、 索引或删除一个文档必要的顺序步骤：</p>
 <ol>
 <li>客户端给 Node 1 发送新建、 索引或删除请求。</li>
 <li>节点使用文档的 _id 确定文档属于分片 0 。 它转发请求到 Node 3 ， 分片 0 位于这个节<br>点上。</li>
@@ -108,7 +108,7 @@
 
 </li>
 </ul>
-<h3 id="一个doc从写入到持久化"><a href="#一个doc从写入到持久化" class="headerlink" title="一个doc从写入到持久化"></a>一个doc从写入到持久化</h3><p><img src="/images/loading.png" data-original="/images/pasted-21.png" alt="写入到持久化"></p>
+<h3 id="一个doc从写入到持久化"><a href="#一个doc从写入到持久化" class="headerlink" title="一个doc从写入到持久化"></a>一个doc从写入到持久化</h3><p><img data-src="/images/loading.png" data-original="/images/pasted-21.png" alt="写入到持久化"></p>
 <p>从上图看出，写入doc时不是直接写入到磁盘，因为写磁盘开销很大，很容易造成瓶颈。</p>
 <p>当一个文档写入Lucene后是不能被立即查询到的，Elasticsearch提供了一个refresh操作，会定时地调用lucene的reopen(新版本为openIfChanged)为内存中新写入的数据生成一个新的segment，此时被处理的文档均可以被检索到。refresh操作的时间间隔由refresh_interval参数控制，默认为1s, 当然还可以在写入请求中带上refresh表示写入后立即refresh，另外还可以调用refresh API显式refresh。</p>
 <ul>
@@ -173,7 +173,7 @@
 <h2 id="线程池："><a href="#线程池：" class="headerlink" title="线程池："></a>线程池：</h2><h3 id="1-解释线程池的作用？"><a href="#1-解释线程池的作用？" class="headerlink" title="1.解释线程池的作用？"></a>1.解释线程池的作用？</h3><p>1）降低资源消耗；2）提高响应速度；3）提高线程的可管理性。<br>线程的创建和销毁的开销是巨大的，而通过线程池的重用大大减少了这些不必要的开销，当然既然少了这么多消费内存的开销，其线程执行速度也是突飞猛进的提升。</p>
 <p>并发：在某个时间段内，多个程序都处在执行和执行完毕之间；但在一个时间点上只有一个程序在运行。头脑风暴：老鹰妈妈喂小雏鹰食物，小雏鹰很多，而老鹰只有一张嘴，她需要一个个喂过去，到最后每个小雏鹰都可以吃到，但是在一个时间点里只能有一个小雏鹰可以吃到美味的食物。</p>
 <p>并行：在某个时间段里，每个程序按照自己独立异步的速度执行，程序之间互不干扰。头脑风暴：这就好似老鹰妈妈决定这样喂食太费劲于是为每个小雏鹰请了个保姆，这样子在一个时间点里，每个小雏鹰都可以同时吃到食物，而且互相不干扰。</p>
-<h3 id="2-线程池的处理流程？"><a href="#2-线程池的处理流程？" class="headerlink" title="2.线程池的处理流程？"></a>2.线程池的处理流程？</h3><p><img src="/images/loading.png" data-original="/images/pasted-11.png" alt="upload successful"><br>线程池优先要创建出基本线程池大小（corePoolSize）的线程数量，没有达到这个数量时，每次提交新任务都会直接创建一个新线程，当达到了基本线程数量后，又有新任务到达，优先放入等待队列，如果队列满了，才去创建新的线程（不能超过线程池的最大数maxmumPoolSize）</p>
+<h3 id="2-线程池的处理流程？"><a href="#2-线程池的处理流程？" class="headerlink" title="2.线程池的处理流程？"></a>2.线程池的处理流程？</h3><p><img data-src="/images/loading.png" data-original="/images/pasted-11.png" alt="upload successful"><br>线程池优先要创建出基本线程池大小（corePoolSize）的线程数量，没有达到这个数量时，每次提交新任务都会直接创建一个新线程，当达到了基本线程数量后，又有新任务到达，优先放入等待队列，如果队列满了，才去创建新的线程（不能超过线程池的最大数maxmumPoolSize）</p>
 <h3 id="3-jdk提供的线程池工具类有哪些，区别是什么？"><a href="#3-jdk提供的线程池工具类有哪些，区别是什么？" class="headerlink" title="3.jdk提供的线程池工具类有哪些，区别是什么？"></a>3.jdk提供的线程池工具类有哪些，区别是什么？</h3><p>newFixedThreadPool<br>创建一个指定工作线程数量的线程池。每当提交一个任务就创建一个工作线程，如果工作线程数量达到线程池初始的最大数，则将提交的任务存入到池队列中。</p>
 <p>newCachedThreadPool<br>创建一个可缓存的线程池。这种类型的线程池特点是：<br>1).工作线程的创建数量几乎没有限制(其实也有限制的,数目为Interger. MAX_VALUE), 这样可灵活的往线程池中添加线程。<br>2).如果长时间没有往线程池中提交任务，即如果工作线程空闲了指定的时间(默认为1分钟)，则该工作线程将自动终止。终止后，如果你又提交了新的任务，则线程池重新创建一个工作线程。</p>
 <p>newSingleThreadExecutor<br>创建一个单线程化的Executor，即只创建唯一的工作者线程来执行任务，如果这个线程异常结束，会有另一个取代它，保证顺序执行(我觉得这点是它的特色)。单工作线程最大的特点是可保证顺序地执行各个任务，并且在任意给定的时间不会有多个线程是活动的 。</p>
@@ -313,8 +313,8 @@
     <title>Java程序员Chrome浏览器必装插件</title>
     <url>/post/b0de6b16/</url>
     <content><![CDATA[<p>整理了一下自己一直在用的Chrome浏览器插件,之后有觉得好用的也会更新进来</p>
-<h2 id="SQLDelimiter"><a href="#SQLDelimiter" class="headerlink" title="SQLDelimiter"></a><a href="https://chrome.google.com/webstore/detail/sqldelimiter/ngobnmgdnggmcafeblbealjjnpakoghd" target="_blank" rel="noopener">SQLDelimiter</a></h2><p>参数拆分插件,从Excel直接复制或者MySQL查询结果复制,直接转化成带逗号分隔<br><img src="/images/loading.png" data-original="/images/pasted-3.png" alt="upload successful"></p>
-<h2 id="JSON-handle"><a href="#JSON-handle" class="headerlink" title="JSON-handle"></a><a href="https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj" target="_blank" rel="noopener">JSON-handle</a></h2><p>Json格式化或者转成更好看的形式,方便检查数据<br><img src="/images/loading.png" data-original="/images/pasted-4.png" alt="upload successful"></p>
+<h2 id="SQLDelimiter"><a href="#SQLDelimiter" class="headerlink" title="SQLDelimiter"></a><a href="https://chrome.google.com/webstore/detail/sqldelimiter/ngobnmgdnggmcafeblbealjjnpakoghd" target="_blank" rel="noopener">SQLDelimiter</a></h2><p>参数拆分插件,从Excel直接复制或者MySQL查询结果复制,直接转化成带逗号分隔<br><img data-src="/images/loading.png" data-original="/images/pasted-3.png" alt="upload successful"></p>
+<h2 id="JSON-handle"><a href="#JSON-handle" class="headerlink" title="JSON-handle"></a><a href="https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj" target="_blank" rel="noopener">JSON-handle</a></h2><p>Json格式化或者转成更好看的形式,方便检查数据<br><img data-src="/images/loading.png" data-original="/images/pasted-4.png" alt="upload successful"></p>
 <h2 id="JSON-Formatter"><a href="#JSON-Formatter" class="headerlink" title="JSON Formatter"></a><a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa" target="_blank" rel="noopener">JSON Formatter</a></h2><p>直接格式化http请求返回的json内容</p>
 ]]></content>
       <categories>
@@ -669,9 +669,9 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;configuration scan=&quot;false&quot; debug=&quot;false&quot;&gt;  </span><br><span class="line">  	&lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;%d&#123;mm:ss&#125; %-5level %logger&#123;36&#125; &gt;&gt;&gt; %msg%n&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;appender name=&quot;DEBUG_FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">    	&lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;  </span><br><span class="line">            &lt;level&gt;DEBUG&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;  </span><br><span class="line">    		&lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt; </span><br><span class="line">	    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">	      &lt;!-- daily rollover --&gt;</span><br><span class="line">	      &lt;fileNamePattern&gt;logs/debug.%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</span><br><span class="line">	</span><br><span class="line">	      &lt;!-- keep 30 days&apos; worth of history capped at 3GB total size --&gt;</span><br><span class="line">	      &lt;maxHistory&gt;30&lt;/maxHistory&gt;</span><br><span class="line">	      &lt;totalSizeCap&gt;3GB&lt;/totalSizeCap&gt;</span><br><span class="line">	    &lt;/rollingPolicy&gt;</span><br><span class="line">	    &lt;encoder&gt;</span><br><span class="line">	      &lt;pattern&gt;%d [%thread] [%-5level] %file,%line - %msg%n&lt;/pattern&gt;</span><br><span class="line">	    &lt;/encoder&gt; </span><br><span class="line">    &lt;/appender&gt;  </span><br><span class="line">  </span><br><span class="line">    &lt;appender name=&quot;WARN_FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;</span><br><span class="line">    	&lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;  </span><br><span class="line">            &lt;level&gt;WARN&lt;/level&gt;</span><br><span class="line">        &lt;/filter&gt; </span><br><span class="line">	    &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;</span><br><span class="line">	      &lt;!-- daily rollover --&gt;</span><br><span class="line">	      &lt;fileNamePattern&gt;logs/warn.%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</span><br><span class="line">	</span><br><span class="line">	      &lt;!-- keep 30 days&apos; worth of history capped at 3GB total size --&gt;</span><br><span class="line">	      &lt;maxHistory&gt;30&lt;/maxHistory&gt;</span><br><span class="line">	      &lt;totalSizeCap&gt;3GB&lt;/totalSizeCap&gt;</span><br><span class="line">	    &lt;/rollingPolicy&gt;</span><br><span class="line">	    &lt;encoder&gt;</span><br><span class="line">	      &lt;pattern&gt;%d [%thread] [%-5level] %file,%line - %msg%n&lt;/pattern&gt;</span><br><span class="line">	    &lt;/encoder&gt; </span><br><span class="line">    &lt;/appender&gt; </span><br><span class="line">  </span><br><span class="line">    &lt;root level=&quot;DEBUG&quot;&gt;  </span><br><span class="line">        &lt;appender-ref ref=&quot;DEBUG_FILE&quot; /&gt;  </span><br><span class="line">        &lt;appender-ref ref=&quot;WARN_FILE&quot; /&gt;  </span><br><span class="line">        &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;</span><br><span class="line">    &lt;/root&gt;  </span><br><span class="line">  </span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class TestA &#123;</span><br><span class="line">	static Logger log = LoggerFactory.getLogger(TestB.class);</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		log.trace(&quot;======trace&quot;);  </span><br><span class="line">		log.debug(&quot;======debug&quot;);  </span><br><span class="line">		log.info(&quot;======info&quot;);  </span><br><span class="line">		log.warn(&quot;======warn&quot;);  </span><br><span class="line">		log.error(&quot;======error&quot;); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出结果:</p>
-<p><img src="/images/loading.png" data-original="/images/pasted-1.png" alt="upload successful"></p>
+<p><img data-src="/images/loading.png" data-original="/images/pasted-1.png" alt="upload successful"></p>
 <p>日志记录情况:</p>
-<p><img src="/images/loading.png" data-original="/images/pasted-2.png" alt="upload successful"></p>
+<p><img data-src="/images/loading.png" data-original="/images/pasted-2.png" alt="upload successful"></p>
 <p>demo每天一个新日志文件,历史数据保留最大30天.日志总占数据量大于3G自动异步删除旧日志</p>
 <p>根节点<code>&lt;configuration&gt;</code>包含的属性：</p>
 <p>scan:</p>
