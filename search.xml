@@ -46,7 +46,7 @@
 </tbody></table>
 <ul>
 <li>Index：索引，包含一堆有相似结构的文档数据，比如可以有一个客户索引，商品分类索引，订单索引，索引有一个名称。一个index包含很多document，一个index就代表了一类类似的或者相同的document。比如说建立一个product index，商品索引，里面可能就存放了所有的商品数据，所有的商品document。</li>
-<li>Type：类型，<del>每个索引里都可以有一个或多个type，type是index中的一个逻辑数据分类，一个type下的document，都有相同的field，比如博客系统，有一个索引，可以定义用户数据type，博客数据type，评论数据type。</del> $\color{red}{6.0版本兼容多Type,7.0后一个Index只支持一个Type}$</li>
+<li>Type：类型，<del>每个索引里都可以有一个或多个type，type是index中的一个逻辑数据分类，一个type下的document，都有相同的field，比如博客系统，有一个索引，可以定义用户数据type，博客数据type，评论数据type。</del> <code>6.0版本兼容多Type,7.0后一个Index只支持一个Type</code></li>
 <li>Document&amp;field：文档，es中的最小数据单元，一个document可以是一条客户数据，一条商品分类数据，一条订单数据，通常用JSON数据结构表示，每个index下的type中，都可以去存储多个document。一个document里面有多个field，每个field就是一个数据字段。</li>
 </ul>
 <h2 id="集群详解"><a href="#集群详解" class="headerlink" title="集群详解"></a>集群详解</h2><p><img data-src="/images/loading.png" data-original="/images/pasted-12.png" alt="集群结构"></p>
